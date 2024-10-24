@@ -29,10 +29,7 @@ def roulette_selection(ngrams, ngram_type=2):
 def generate_sentence(ngram, data):
         sentence = []
 
-        if ngram == 3:
-            #SI en el mismo ngframa vienen tanto inicio como fin de oracion, eliminar esa fila, pero solo si estan ambas
-            data = [ngram for ngram in data if '<s>' not in ngram or '</s>' not in ngram]
-            
+        data = [ngram for ngram in data if '<s>' not in ngram or '</s>' not in ngram]                    
 
         # Seleccionar el primer n-grama aleatoriamente
         data_inicial = [ngram for ngram in data if '<s>' in ngram]
