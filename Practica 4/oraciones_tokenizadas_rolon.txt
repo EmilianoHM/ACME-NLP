@@ -1,0 +1,1594 @@
+<s> Aquí les mando la reu, tenemos que hacer sacar estimaciones </s>
+<s> Ahorita lea digo que shiw </s>
+<s> Dejaron al becario a estimar </s>
+<s> Simon, nos van a ensartar </s>
+<s> Subanse </s>
+<s> a la reu porfa </s>
+<s> Ya se las pusieron en su calendario </s>
+<s> Camara chavoooooos </s>
+<s> Ayuda </s>
+<s> Noma, que decimos Hugo </s>
+<s> Es un crud no? </s>
+<s> Yo digo que como 2 meses no? </s>
+<s> Mas o menos, si lo conozco, pero muy la parte visual </s>
+<s> Y aparte hablan bien tecnico, ni les entiendo </s>
+<s> Si, hacer un crudsito, pero no se bien de que </s>
+<s> Es sobre servicios que ya existen </s>
+<s> Simon, hay que revisar ese show, le pido el doc al final para revisarlo de manera visual, y ver que hace el codigo por detras en esos modulos </s>
+<s> Di algo bro jaja </s>
+<s> Tu eres el grandote jaja </s>
+<s> Un mes y medio bro? </s>
+<s> O a quien le preguntamos o que show </s>
+<s> Simon jaja </s>
+<s> A ver si contestan en el grupo </s>
+<s> Pues ya estimaron por nosotros </s>
+<s> Tampoco me dan acceso </s>
+<s> A ver quien se los hace </s>
+<s> Me agregas bro, porfa? </s>
+<s> SImon, no crees que nos manden alv? </s>
+<s> jaja </s>
+<s> Les damos la estimacion, y les decimos que va a variar una vez que se termine la curva de aprendizaje </s>
+<s> Simon, les decimos que probablemente se reduzca una vez que comprendamos bien el proceso </s>
+<s> Si quieres bro </s>
+<s> Pus diles si quieres hablado jaja </s>
+<s> Vava </s>
+<s> Simon jaja </s>
+<s> Deja que terminen de hablar xd </s>
+<s> Va, me parece bien bro </s>
+<s> Para el otro el mismo no? </s>
+<s> 8 igual por cualquier cosa </s>
+<s> Va </s>
+<s> Oye bro, me tengo que mover porque tengo la toma de fotografía de mi generación de la escuela </s>
+<s> Cualquier cosa me avisas bro </s>
+<s> Si no, me subo a la reu igual </s>
+<s> Simon </s>
+<s> Simon, aun falta para empezar a hacerlos </s>
+<s> Ah si claro, me parece que estas estimaciones todas son a partir de que podamos empezar a trabajar </s>
+<s> Va que va </s>
+<s> Que onda bro, te vas a subir al meet de nuevas plataformas, o andas muy atorado en bloqueo de abono? </s>
+<s> Que si te ocupan bro, porque sales como lider tecnico de la celula </s>
+<s> Simon bro jaja </s>
+<s> Gracias bro </s>
+<s> Te subes al meet bro, porfa? </s>
+<s> Vava </s>
+<s> Le pido la reu a Noel pa hoy o pal lunes chavos? </s>
+<s> Va </s>
+<s> Va que va, a Elihu ya lo agregue en el grupo, y ahí andan los requerimientos </s>
+<s> Tons pus ahora si como dicen </s>
+<s> Lo vemos el lines </s>
+<s> Lunes </s>
+<s> Efectivamente jaja </s>
+<s> Se suben al meet que mande porfa? </s>
+<s> Pa acabar rapido e irnos </s>
+<s> Saben que repos modificar? </s>
+<s> O les pregunto? </s>
+<s> Va, </s>
+<s> voy </s>
+<s> es-latam-ods-ms-main </s>
+<s> Si, ahorita se los paso </s>
+<s> A veces tarda en reflejarse en el drive no? </s>
+<s> Porque aun no me sale </s>
+<s> Simon, en cuanto se genere lo mando jaja </s>
+<s> Me recomendo Jhon que hicieramos un checklist como </s>
+<s> este </s>
+<s> Lo hacemos o nel? </s>
+<s> Va jaja, igual sería pasar lo que nos compartieron nomas </s>
+<s> Ahí le voy dando </s>
+<s> El video </s>
+<s> Oigan chavos, es un chingo de Pinpad, a poco todo nos toca a nosotros? </s>
+<s> Ahorita llevo esto del excel de la lista de requerimientos </s>
+<s> Mas al rato voy agregando los esatus y comentarios </s>
+<s> Ahi si le ven algo, o faltan mas cosas pus igual las van agregando </s>
+<s> Provecho banda </s>
+<s> Que bueno que lo agarro Noel jaja </s>
+<s> Creo que los primeros requerimientos, pero no me acuerdo bien </s>
+<s> Simon, creo que si es tu internet bro </s>
+<s> Oigan, pero no todo era de nosotros o si? </s>
+<s> Simon, me parece que eso ya es de otra celula </s>
+<s> Simon, mas rapido jaja </s>
+<s> Yo digo que hay que hacer una reu para ir revisando req por req nosotros no? </s>
+<s> O como ven, como le hacemos? </s>
+<s> j </s>
+<s> Va que va bro </s>
+<s> Ocupas que vaya haciendo algo para mañana? </s>
+<s> Le voy dando </s>
+<s> Va que va </s>
+<s> Tons que hacemos banda, quieren que nos reunamos despues de desayunar, o nos esperamos hasta las 4 con el Jhon </s>
+<s> Pueden de 11 a 12? </s>
+<s> O de 10:30 </s>
+<s> a 11:30 </s>
+<s> Es que tengo examen en la uni </s>
+<s> a las 12 </s>
+<s> Va, tons si puedes de 10:30 a 11:30 Elihu? </s>
+<s> Va jaja </s>
+<s> Simon, yo digo que a las 11 </s>
+<s> Va </s>
+<s> La libramos gracias a dios </s>
+<s> Batch para actualizar datos SITMA: es-latam-merchants-batch-sitma </s>
+<s> Comando </s>
+<s> Va, no te preocupes bro </s>
+<s> Mmm, de lo que implica como tal no o si?, o sea solo es modificar el catalogo de los productos, y realizar correctamente el filtrado del lado del back no? </s>
+<s> Pero ese filtrado lo hace nuestro back? o SITMA? </s>
+<s> Entonces que le contestamos? </s>
+<s> Que del lado del front entrarian limpios los nuevos filtros, y del lado del back no deberia de haber problema, nada mas revisar si el filtrado lo hacemos directamente nosotros o se lo pasamos a SITMA? </s>
+<s> O que mas? </s>
+<s> O sea, el de producto como nuevo parametro? </s>
+<s> Si claro, o sea mandar el nuevo parametro del lado de elihu, y en el back recibirlo y ocuparlo para filtrar tambien, nadamas hay que revisar si lo filtramos nosotros o SITMA </s>
+<s> Hola Mirian, del lado del front entraría transparente el cambio y del lado del back no debería de haber tema tampoco, nada más es revisar bien si ese filtrado lo hace eBind, o un end point de SITMA, en caso de que lo haga SITMA, ya nos ponemos de acuerdo con Ares </s>
+<s> Como la ven? </s>
+<s> Va </s>
+<s> SImon, ya le conteste y ya le dije de las tablas </s>
+<s> Ahorita empiezo el doc </s>
+<s> Sabes en que repo esta eso? </s>
+<s> O donde checarlo? </s>
+<s> jaja </s>
+<s> De back jeje, pus en el front nomas manda el nuevo parametro pal back no? </s>
+<s> Te toca rifarte por el equipo </s>
+<s> Hasta ahorita llevo esto chavos de la documentacion </s>
+<s> Le contesto que otra sesión de onboarding?, o ya podemos dar fechas? </s>
+<s> Oigan chavos, si voy a andar en el meet, pero no voy a poder hablar mucho, voy a andar en clase </s>
+<s> Va, </s>
+<s> gracias </s>
+<s> Ya andan pasando lista xd </s>
+<s> A todos creo </s>
+<s> No me vayas a nominar bro </s>
+<s> Simon, hay que ver como le hacemos </s>
+<s> Simon, para a que hora la vas a poner bro? </s>
+<s> Oye un día de estos podemos tener una reu y me explicas algun servicio de aqui de back? </s>
+<s> Porque si le he movido al back pero nunca con Spring jeje, tons me gustaria como ir siguiendo un flujo contigo ya para que en los proximos desarrollos de eche la mano de ese lado </s>
+<s> Pa las consultas no? </s>
+<s> jaja </s>
+<s> Vaa, ahi le damos juntos jaja </s>
+<s> Simon, yo creo que hasta igual lo conveniente es que los 3 supieramos de todo caon </s>
+<s> Porque somos re poquitos </s>
+<s> Simon, lo hacemos los 3 </s>
+<s> Esta con js verdad? </s>
+<s> Va, igual pa ir instalandolo </s>
+<s> Va </s>
+<s> Si me dejara instalarlo en la lap de la chamba? </s>
+<s> Simon </s>
+<s> Vava jaja </s>
+<s> Mañana a las 4 puedes bro? </s>
+<s> Va, yo a la hora que necesiten, menos de 12 a 1:30, tengo clase </s>
+<s> Va, </s>
+<s> 4:30 </s>
+<s> Si, ahorita lo agendo </s>
+<s> Listo </s>
+<s> Ah si, </s>
+<s> se me fue jaja </s>
+<s> Va que va </s>
+<s> En el transcurso del día que puedo ir haciendo? </s>
+<s> El back es el de disputes no? </s>
+<s> Y el front cual es bro? </s>
+<s> Va, intento levantar ese y el de disputes </s>
+<s> Ahorita lo paso </s>
+<s> Este es al que le estaba moviendo Eduardo ayer </s>
+<s> Ese es el back no? </s>
+<s> Cual es el de merchants? </s>
+<s> Jaja </s>
+<s> El de retrievals? </s>
+<s> No se jaja </s>
+<s> Supongo que debe de haber una que diga donde esta cada cosa no? </s>
+<s> Si nos vamos a unir chavos? </s>
+<s> Va </s>
+<s> Jajjajaja </s>
+<s> Viable o no </s>
+<s> Queda por queda </s>
+<s> dice </s>
+<s> Lo bueno que esta el jefazo </s>
+<s> Si crece en registros y se reestructura </s>
+<s> todo </s>
+<s> Se cambia todo ese show </s>
+<s> Como la ven que lo hagamos sin decirle al banco </s>
+<s> Simon jaja </s>
+<s> Como vas a hacer algo sin tener el visto bueno </s>
+<s> Simon, se me hace que si </s>
+<s> Hay que preguntar si hay un maquetado de como esta ahorita y copiamos ese y lo ajustamos </s>
+<s> De merchants? </s>
+<s> Ahh, de services creo </s>
+<s> que si </s>
+<s> Dejame valido si me deja entrar </s>
+<s> Voy </s>
+<s> Que onda </s>
+<s> Ahorita cuales siguen levantados? </s>
+<s> Cuales quieres elihu? </s>
+<s> O revisamos todas juntos? </s>
+<s> Le echo un ojo a la 69 </s>
+<s> En que rama los estas resolviendo bro? </s>
+<s> Tons me jalo una de qa? </s>
+<s> Nos podemos subir a un meet Elihu? y revisar juntos? </s>
+<s> jaja </s>
+<s> Porque no le entiendo bien al vue mano </s>
+<s> Simon, vente jaja </s>
+<s> Ya le anduve buscando y ni encontre donde hay que moverle xd </s>
+<s> Que onda banda, creo que ya quedo el back, pero no se como probarlo en mi local </s>
+<s> Como le hago? </s>
+<s> xd </s>
+<s> No, si le doy correr, me marca error en las conexiones de postgresql </s>
+<s> Igual murio </s>
+<s> Vava, de todas formas ya le pregunte a Lalo </s>
+<s> Simon, ahorita lo checo </s>
+<s> Ahorita lo checo </s>
+<s> Toy en clade </s>
+<s> Que onda </s>
+<s> O a ver </s>
+<s> , dame 2 dejame lo convierto a como va el original pero con los puros que corresponden al producto </s>
+<s> Simon, si lo logre jaja </s>
+<s> Le faltaba certificado tambien </s>
+<s> Ese ahorita te lo paso bro </s>
+<s> Y ya nomas le pones la ruta donde lo dejes en el yml </s>
+<s> Listo, ya quedo caon, ahorita subo los cambios a mi rama y te envio el mr Hugo? </s>
+<s> O como le hago? </s>
+<s> Se descarga de qa </s>
+<s> Es </s>
+<s> ese </s>
+<s> No jaja, le pregunte al Esteban </s>
+<s> Pues mientras apunte a qa no Hugo? </s>
+<s> Ah simon, tengo que subir y hacer qa no? </s>
+<s> Voy </s>
+<s> No, lo deje comentado </s>
+<s> Asi como lo clone asi lo deje, nomas le puse el comentario </s>
+<s> Y ahora que procede? </s>
+<s> jaja </s>
+<s> Va </s>
+<s> Pus segun esto ya prendio </s>
+<s> tu </s>
+<s> Simon bro </s>
+<s> Seria este </s>
+<s> Porque ahorita si jala con la que estaba, falta ver que jale chido con el nuevo param </s>
+<s> Ah </s>
+<s> si jala, ya probe desde el navegador </s>
+<s> Ya nomas que quede el front y se pasa a retest no? </s>
+<s> Cuales faltan? </s>
+<s> No pues ya fuimo </s>
+<s> Simon, nomas les di como esperanza que ya esta avanzado </s>
+<s> Justo es lo que estamos probando Elihu y yo xd </s>
+<s> Por eso nomas les dije que ya estaba avanzado jaja </s>
+<s> Noma, son un chingo de cosas mano </s>
+<s> Ese cual es? </s>
+<s> Ahh, ese es el GSC-24569 </s>
+<s> Ya nomas que Elihu haga el mr para QA para que lo apruebes </s>
+<s> Una pregunta, si se quieren comenzar nuevos desarrollos pero se sacan de dev, se tiene que hacer merge primero de qa a dev no? </s>
+<s> Para homologar los cambios? </s>
+<s> Esa nomas es duda </s>
+<s> Va que va, porque si no luego se van a planchar los cambios caon </s>
+<s> Pues si, siempre sacan ramas de qa </s>
+<s> Cuando acabemos los defectos le pregunto a carlos jaja </s>
+<s> Si, pero al final de todos esos, ya se hace el merge a dev no? </s>
+<s> Y en teoria, nadie mas deberia de estar trabajando en una rama basada en dev </s>
+<s> Porque si planchamos dev con qa y luego dev con esa rama, valio queso no? </s>
+<s> Duerman a dev xd </s>
+<s> Es que segun yo no esta detenido </s>
+<s> xd </s>
+<s> De hecho esta en pruebas internas ahi en el trello </s>
+<s> Yo creo que no </s>
+<s> Simon, yo tambien creo que no nos toca </s>
+<s> Dejame pregunto en el grupo de Carlos que si tienen el documento de los requerimientos de ese modulo </s>
+<s> Para comparar </s>
+<s> nos puedes pasar que otras incidencias tenemos abiertas? </s>
+<s> xd </s>
+<s> Ya hiciste el mr de front? </s>
+<s> Se tiene que prender también en el jenkins @5215567397909 ? </s>
+<s> Simon, yo si </s>
+<s> Simon, lo checamos 10:30? </s>
+<s> Denme 5 chavos </s>
+<s> Ya mande a re-test el que resolvió jon </s>
+<s> Y esperar el de gaby </s>
+<s> Cual me aviento </s>
+<s> Vava </s>
+<s> Ahorita no jaja </s>
+<s> Simon jaja </s>
+<s> Creo </s>
+<s> que si bro </s>
+<s> Que onda Hugo, mañana me apruebas este request porfa? </s>
+<s> Es para quitar lo del defecto GSC-24606 </s>
+<s> Estuvo facil porque no estaba dinamico esa cosa, esa en un layout </s>
+<s> Va que va </s>
+<s> puedes checar lo que dijeron en el grupo porfa? </s>
+<s> Que ya no bro jaja </s>
+<s> A caray, no me acu3rdo de esa jeje </s>
+<s> Ahhhh </s>
+<s> Hay que rezar caon </s>
+<s> Eso es lo que no se, ahorita pregunto </s>
+<s> Deja pregunto en el grupo </s>
+<s> Jajaja </s>
+<s> quieres que revisemos lo del defecto que me comentaste el viernes? </s>
+<s> Ahorita terminando la junta </s>
+<s> O despues de comer? </s>
+<s> Jajajaja </s>
+<s> Sale </s>
+<s> Va que va </s>
+<s> Me avisan chavos </s>
+<s> Va que va </s>
+<s> Vale, simon </s>
+<s> Bambi </s>
+<s> No jaja, si quieren lo agendo </s>
+<s> Ya se las puse en el calendario jaja </s>
+<s> Gracias tia! </s>
+<s> 😘 </s>
+<s> No </s>
+<s> Cortaron la línea de la casa </s>
+<s> Si </s>
+<s> No sé, salí con una chava </s>
+<s> Ya llegué </s>
+<s> Por si quieres hablar con mi abuela </s>
+<s> Si </s>
+<s> Ya esta con mi abuela? </s>
+<s> Mi mama </s>
+<s> Ahorita veo </s>
+<s> Si </s>
+<s> Si </s>
+<s> Esa también por los dos lados? </s>
+<s> Va </s>
+<s> Tu cédula en una sola hoja o en dos? </s>
+<s> Va </s>
+<s> Tia, por favor métete hasta la alberca </s>
+<s> para que nos des el traje de Nico </s>
+<s> Si </s>
+<s> Si jaja </s>
+<s> Jaja </s>
+<s> Gracias tía 😘 </s>
+<s> Si, ya llegó mi abuelita </s>
+<s> A color? </s>
+<s> ok </s>
+<s> Si </s>
+<s> Puede ser mañana, ando medio malo </s>
+<s> Si </s>
+<s> Si </s>
+<s> En un cac </s>
+<s> Centro de atención a clientes </s>
+<s> Si </s>
+<s> Que pask </s>
+<s> Si, lo reseteamos </s>
+<s> No estaba jalando bien </s>
+<s> Si </s>
+<s> Está dormido jaja </s>
+<s> No jaja </s>
+<s> Ya regreso no? </s>
+<s> Acá </s>
+<s> si tenemos </s>
+<s> Va </s>
+<s> Lo reseteamos </s>
+<s> Vale </s>
+<s> No </s>
+<s> Nosotros </s>
+<s> si tenemos </s>
+<s> A ver intentalo </s>
+<s> La reseteamls </s>
+<s> Tengo examen </s>
+<s> Vuelvelo a meter si quieres </s>
+<s> Ok </s>
+<s> Gracias </s>
+<s> No se </s>
+<s> Creo </s>
+<s> que no </s>
+<s> No sé, estábamos jugando futbolito </s>
+<s> Ahorita a la hora de la comida </s>
+<s> Va, </s>
+<s> gracias </s>
+<s> Por? </s>
+<s> Pues a lo mejor ya se saturo </s>
+<s> Ahí te dice </s>
+<s> Eliminaste este mensaje. </s>
+<s> Ok </s>
+<s> Si </s>
+<s> Si está allá el odon </s>
+<s> Jaja voy </s>
+<s> Que paso? </s>
+<s> Si </s>
+<s> Si </s>
+<s> rolonbertocr7@gmail.com </s>
+<s> Contraseña </s>
+<s> 2018093351 </s>
+<s> Jajaja </s>
+<s> De nada </s>
+<s> Si, perdón </s>
+<s> Si </s>
+<s> Ya le cree otra cuenta a mi mamanes para que vean Betty jaja </s>
+<s> Ahí la ven en ese perfil jaja </s>
+<s> Salte y vuelve a entrar </s>
+<s> Va, se quedaron como a la mitad del </s>
+<s> 12 </s>
+<s> 13* </s>
+<s> Ya tiene teléfono </s>
+<s> A ver marca </s>
+<s> Es que nadamás sirve el que está </s>
+<s> arriba </s>
+<s> Por eso no contestan </s>
+<s> Hay que comprar </s>
+<s> unos nuevos </s>
+<s> Si jaja </s>
+<s> El chafa quedó abajo </s>
+<s> Y el que estaba abajo se quedó arriba </s>
+<s> Ahi va </s>
+<s> mi abuelita </s>
+<s> Si </s>
+<s> Ya vamos de regreso </s>
+<s> Yq </s>
+<s> Nos fuimos como a las 7 </s>
+<s> Si </s>
+<s> Si </s>
+<s> Ya </s>
+<s> Ya vamos para allá </s>
+<s> Mándame la dirección porfa </s>
+<s> si </s>
+<s> No estoy en la casa </s>
+<s> Vine a la batiz </s>
+<s> Si </s>
+<s> Si </s>
+<s> Ya </s>
+<s> Que tengo que imprimir </s>
+<s> Dos iguales? </s>
+<s> Ya </s>
+<s> Si, ya acabe de estudiar jaja </s>
+<s> Jaja </s>
+<s> rolonbertocr7@gmail.com </s>
+<s> 2018093351 </s>
+<s> Eso es el usuario y contraseña </s>
+<s> Si </s>
+<s> Se supone que ya </s>
+<s> Va </s>
+<s> Graciaaas </s>
+<s> Oye tía, me podrás pasar el contacto de tu dermatóloga </s>
+<s> Porfa </s>
+<s> Gracias </s>
+<s> Dame 10 </s>
+<s> Tienes que dejarle apretado el botón por 5 segundos </s>
+<s> No sé, al rato voy a ver jaja </s>
+<s> En qué tamaño? </s>
+<s> Si </s>
+<s> Si </s>
+<s> No nos deja entrar </s>
+<s> Ya lo cerré todo y no </s>
+<s> También ya lo desconecte y lo volví a conectar y aún así no nos deja entrar </s>
+<s> Voy </s>
+<s> Ya </s>
+<s> Si </s>
+<s> Gracias tía 😘 </s>
+<s> Si </s>
+<s> a color o a blanco y negro? </s>
+<s> A qué hora? </s>
+<s> No estoy en la casa 😬 </s>
+<s> Vamos a nadar </s>
+<s> Con mi mamá </s>
+<s> Va </s>
+<s> No, tu si? </s>
+<s> Jajajaja </s>
+<s> pa adelgazar </s>
+<s> Te desconectas tempra al rato </s>
+<s> Si, en unos 5 min </s>
+<s> De que número calza Nico? </s>
+<s> Las zapatillas de ballet jaja </s>
+<s> Si </s>
+<s> Ya mero </s>
+<s> Ya estamos aqui </s>
+<s> Ta bien </s>
+<s> Si está bien </s>
+<s> Ya nos fuimos </s>
+<s> Al rato </s>
+<s> Al rato vamos a ir </s>
+<s> Porque vinimos al cine </s>
+<s> No son muy buenos </s>
+<s> Vas a comprar un celular? </s>
+<s> Cuáles hay? </s>
+<s> Cualquiera? </s>
+<s> O tienes una lista o como? </s>
+<s> Si te dan una lista me </s>
+<s> la mandas </s>
+<s> Yo digo que el note 9 </s>
+<s> Los Huawei ya no tienen Google, osea no tienen play store </s>
+<s> Entonces todas las aplicaciones las tienes que descargar de internet creo </s>
+<s> Y los Samsung están muy caros </s>
+<s> O el g9+ </s>
+<s> Pero yo escogería el note 9 </s>
+<s> Si </s>
+<s> No </s>
+<s> Mejor </s>
+<s> el Xiaomi </s>
+<s> No, yo tebgo otro </s>
+<s> Yo tengo el note 8 pro </s>
+<s> No esta el note 9 pro? </s>
+<s> Si, ese está mejor </s>
+<s> Te dijeron el note 9 </s>
+<s> Pero estaría mejor el note 9 pro </s>
+<s> Si </s>
+<s> Jajaja de nada </s>
+<s> a color? </s>
+<s> Va </s>
+<s> Voy </s>
+<s> Dame 5 </s>
+<s> ya </s>
+<s> Estoy comiendo </s>
+<s> Mañana? </s>
+<s> Jaja </s>
+<s> Ah sí está bien </s>
+<s> si, ahorita la imprimo </s>
+<s> Que paso? </s>
+<s> Jaja </s>
+<s> Ah vava </s>
+<s> Bueno, ahí me avisas </s>
+<s> Va </s>
+<s> No estoy en la casa </s>
+<s> Jaja con una amiga </s>
+<s> Jajajaja ta bien </s>
+<s> Ya me fui jaja </s>
+<s> Sip </s>
+<s> Sip </s>
+<s> Ya </s>
+<s> A imprimir? </s>
+<s> Si </s>
+<s> No, por? </s>
+<s> Que les dice? </s>
+<s> Sip </s>
+<s> Perame, ando en el pollo jaja </s>
+<s> Jajaja </s>
+<s> Ando con cova </s>
+<s> Cambio de planes </s>
+<s> Si, dile </s>
+<s> Cuál es tu correo electrónico? </s>
+<s> Y que método de pago? </s>
+<s> Se paga en linea </s>
+<s> Si quieres </s>
+<s> El mío ya lo hice con la de mi mamá </s>
+<s> Va </s>
+<s> Va </s>
+<s> Ok </s>
+<s> Me rechazó la de mi mamá </s>
+<s> Hace rato si me dejó y ahorita ya no </s>
+<s> Sip </s>
+<s> Si </s>
+<s> Cuál fecha? </s>
+<s> A qué hora acaba tu llamada? </s>
+<s> Bueno </s>
+<s> Si quieres a la 1 voy y lo hacemos rápido </s>
+<s> Vale </s>
+<s> Ando en clase, voy a las 12 </s>
+<s> Jajaja a la 1 si puedes? </s>
+<s> Pero picale en dónde dice fecha </s>
+<s> No en el calendario </s>
+<s> 5:30 </s>
+<s> Jaja </s>
+<s> Ok </s>
+<s> Voy, deja hago del baño </s>
+<s> Ya están los resultados </s>
+<s> Me salió negativo </s>
+<s> Si, pero tienes que ponerle la palabra resultados y ponerle el número del ticket </s>
+<s> Sip </s>
+<s> No jaja </s>
+<s> Si mandaste bien el código del ticket? </s>
+<s> Es el código de tu ticket, no el que yo puse </s>
+<s> Que te salió? </s>
+<s> Ah bueno </s>
+<s> Si, mejor </s>
+<s> Sip </s>
+<s> Ok </s>
+<s> ok </s>
+<s> Ok </s>
+<s> Si, al rato te las llevo </s>
+<s> Que paso? </s>
+<s> Jaja </s>
+<s> Voy por vane </s>
+<s> Por? </s>
+<s> Jaja vine por vane </s>
+<s> A penas voy a llegar al colegio </s>
+<s> A vacunarse </s>
+<s> No estaba en la casa jaja </s>
+<s> Quien sabe jaja </s>
+<s> sip </s>
+<s> ahorita </s>
+<s> te la llevo </s>
+<s> esta? </s>
+<s> que tan pequeña? </s>
+<s> ok </s>
+<s> a color? </s>
+<s> Ya la imprimí jajaja </s>
+<s> como es? </s>
+<s> ok </s>
+<s> el mouse inalambrico o alambrico? </s>
+<s> ok </s>
+<s> sale </s>
+<s> Feliz cumpleaños tiaaaa </s>
+<s> El sábado las 🍻 </s>
+<s> Jajaja bueno, </s>
+<s> ta bien </s>
+<s> Dame 10 </s>
+<s> Así es </s>
+<s> Sip </s>
+<s> Si, si es en español </s>
+<s> Pa decirle a mi mamá </s>
+<s> No </s>
+<s> Cómo cual? </s>
+<s> Y si lo buscas y ya me mandas cuál </s>
+<s> A color verdad? </s>
+<s> ya </s>
+<s> tia, le puedes sacar su comprobante de vacunación a mi abuela? </s>
+<s> RIJI510128MMCVMN01 </s>
+<s> ese es el curp </s>
+<s> Va </s>
+<s> No sé le ve hora </s>
+<s> Si quieres vamos a la tienda </s>
+<s> Vamos a comprar más chela, ya no hay </s>
+<s> Va, deja me acabo esto y ya </s>
+<s> Hago pipi, y ya me dices que vayamos a la tienda </s>
+<s> Ya </s>
+<s> Amos </s>
+<s> Sip </s>
+<s> Ahorita ya? </s>
+<s> Deja acabo de desayunar </s>
+<s> Ya agarro el uber </s>
+<s> Si </s>
+<s> Si, ya casi estoy bien </s>
+<s> Yo creo que en unos dos días ya estoy al 100 </s>
+<s> Si jaja </s>
+<s> Pero me dió muy leve </s>
+<s> Jaja </s>
+<s> Pues un poquito la verdad </s>
+<s> Jajaja </s>
+<s> Pues bastante </s>
+<s> Cuál es tu dirección de facturación? </s>
+<s> va, </s>
+<s> gracias </s>
+<s> Va, </s>
+<s> gracias </s>
+<s> Todavía no, voy 28000 </s>
+<s> En la fila jaja </s>
+<s> Se lo voy a dejar a Vane, porque yo me tengo que ir a la escuela </s>
+<s> Si, mira </s>
+<s> Si jaja </s>
+<s> Si </s>
+<s> Ya te vi jaja </s>
+<s> Jaja </s>
+<s> Vengo llegando </s>
+<s> Sip </s>
+<s> Voy </s>
+<s> Me acabo de despertar jaja </s>
+<s> Ah bueno </s>
+<s> Así es </s>
+<s> No, al rato voy </s>
+<s> Como a las 11 </s>
+<s> Cuando llegue la imprimo </s>
+<s> Ya </s>
+<s> Pueden comprar una crema Alpura de medio, un queso mozzarella rallado y otro paquetito de tocino? </s>
+<s> Jaja </s>
+<s> Es que es mucho espagueti y no van a alcanzar </s>
+<s> No le medimos jaja </s>
+<s> Sip </s>
+<s> Dos de estás? </s>
+<s> Sip </s>
+<s> No estoy </s>
+<s> boleta2018093351 </s>
+<s> Sip </s>
+<s> El usuario es </s>
+<s> : </s>
+<s> Rolon </s>
+<s> rolonbertocr7@gmail.com </s>
+<s> Y está es la contraseña </s>
+<s> Si, toda esa es la contraseña </s>
+<s> De nada </s>
+<s> Si, al rato las imprimo </s>
+<s> Dice mi mamá que no vayas a comprar refrescos </s>
+<s> Oye tía </s>
+<s> Montse y yo cabemos contigo para al rato? </s>
+<s> Va </s>
+<s> Dice mi mamanes que le dijiste que a las 7 no? </s>
+<s> Sales </s>
+<s> Jajaja </s>
+<s> Ahorita me pongo a escuchar Bad Bunny para que suba al 5 </s>
+<s> Jaja </s>
+<s> Está bien </s>
+<s> Las chelas para hoy </s>
+<s> Si, al ratito </s>
+<s> Voy a estar con Montse ahí en la casa en la noche </s>
+<s> Sales 😁 </s>
+<s> Ya llegamos </s>
+<s> Si quieres mañana </s>
+<s> Ya compramos </s>
+<s> No quieres venir por una new mix? </s>
+<s> No </s>
+<s> No están mis papá </s>
+<s> Papás </s>
+<s> Si </s>
+<s> Compré 5 new mix, y dos cervezas </s>
+<s> Que si ya mero dicen </s>
+<s> Que te sale? </s>
+<s> Ya buscaste la aplicación y no sale? </s>
+<s> Mmm, entonces chance no se pueda poner en esa tele </s>
+<s> Ya es medio viejita? </s>
+<s> Yo creo que no se puede en esa tele </s>
+<s> Es la misma? </s>
+<s> O sea, es el mismo modelo de tele? </s>
+<s> No, creo que no </s>
+<s> No, hay algunas teles que ya no le puedes poner el HBO </s>
+<s> Algunos en el 7, y los demás por sky </s>
+<s> Si </s>
+<s> No tienes la quiniela? </s>
+<s> Sales </s>
+<s> ok </s>
+<s> No, ahora no tengo </s>
+<s> Sale </s>
+<s> Saca las 🍻 </s>
+<s> Está Montse </s>
+<s> Ah sí </s>
+<s> es cierto </s>
+<s> Ahorita en la comida </s>
+<s> Sales </s>
+<s> Ahorita </s>
+<s> vamos </s>
+<s> A qué hora es lo de Nico? </s>
+<s> Sales </s>
+<s> Gracias tía 🥳🥳 </s>
+<s> Que si cuando vengas le puedes traer sus lentes a mi mamánes </s>
+<s> Está en la bolsa negra en la mesa </s>
+<s> Por fa </s>
+<s> Sales </s>
+<s> Dicen que está by </s>
+<s> Bien </s>
+<s> Vancouver Wings </s>
+<s> Va a ser aquí tia </s>
+<s> En lugar de el centro </s>
+<s> Que le caigas al rancho dicen </s>
+<s> ubicación: </s>
+<s> Que acá te pasan internet </s>
+<s> Hola tía </s>
+<s> Ya se fueron? </s>
+<s> Es que mi mamá no trae cel, se le olvidó en el rancho jaja </s>
+<s> Que tengan buen viaje tía </s>
+<s> Gracias por haber venido </s>
+<s> Jajajaja un poquito nomás </s>
+<s> A qué hora saldrán? </s>
+<s> Cómo van? </s>
+<s> Sale, avisan cuando lleguen </s>
+<s> Sale </s>
+<s> Se tardaron, pero que bueno que ya llegaron tia </s>
+<s> Ando en clase </s>
+<s> Que paso? </s>
+<s> Pero lo que tienes que comprar es un repetidor </s>
+<s> No un router </s>
+<s> Pero mejor primero habla con tu proveedor de interny </s>
+<s> Internet </s>
+<s> Porque no deberías tener problema con eso </s>
+<s> Está muy chico el departamento </s>
+<s> Sip </s>
+<s> Es como otro modem </s>
+<s> Tienes que pedir un repetidor </s>
+<s> Yo digo que el más barato </s>
+<s> Perame mejor después lo checamos </s>
+<s> Y otro día lo compras </s>
+<s> Es que hay red de 2.4 </s>
+<s> hz </s>
+<s> Y de 5 hz </s>
+<s> Entonces no sé cuál sea tu wifi </s>
+<s> Y tienen que ser compatibles </s>
+<s> Entonces es de 2.4hz </s>
+<s> Compra un repetidor de 2.4 hz </s>
+<s> O uno dual </s>
+<s> Solo tienes esa red? </s>
+<s> No hay una que en lugar de 2.4 diga </s>
+<s> 5 </s>
+<s> Ahhh, entonces si compra cualquiera </s>
+<s> Tienes </s>
+<s> de </s>
+<s> las dos </s>
+<s> De preferencia para 5 </s>
+<s> O un dual </s>
+<s> Si, por? </s>
+<s> Que tiene? </s>
+<s> Ahh </s>
+<s> Al rato voy </s>
+<s> Sip </s>
+<s> Ya ando acá afuera </s>
+<s> Ya todo bien </s>
+<s> Poquito </s>
+<s> Pero si no puedo hablar casi </s>
+<s> Aún no sé si hoy o mañana tia </s>
+<s> Estaban bien grandotas jaja </s>
+<s> Jajajajaja </s>
+<s> Es lo que dijeron mis amigos </s>
+<s> Si, a ver si ya respiro mejor </s>
+<s> Pues no puedo hablar jaja </s>
+<s> No </s>
+<s> Muy poco, y si me duele algo tragar </s>
+<s> Así es jaja </s>
+<s> Si ahorita hablo se escucha como de pato Donald la voz </s>
+<s> Mango </s>
+<s> Voy </s>
+<s> Jajaja </s>
+<s> Dale </s>
+<s> Sale </s>
+<s> Sipi </s>
+<s> No, no conozco otro, pero mi mamá iba a ir a qué la sobaran creo que a las 7 </s>
+<s> Pero por aquí no conozco otro </s>
+<s> Si jaja </s>
+<s> Dile que es una emergencia </s>
+<s> Ah sí se mancha </s>
+<s> Que te contesto? </s>
+<s> Pendejo jaja </s>
+<s> Jajajajajaja </s>
+<s> Creo que hay una donde soban ahí por el mercedes </s>
+<s> Ahí están en el doctor? </s>
+<s> Deja investigo rápido, esperame </s>
+<s> Se fueron en carro? </s>
+<s> Ahhhh, el dónde está? </s>
+<s> Aquí en la casa? </s>
+<s> Ahhhh </s>
+<s> Sería de subirlo a un carro despacito </s>
+<s> Pero no sé si este abierto ahí donde te digo </s>
+<s> Está terminando su clase </s>
+<s> Pero si no hay nadie que lo venga a ver </s>
+<s> Deja busco </s>
+<s> Dayani LF Fisioterapeuta </s>
+<s> Según hay uno en la ctm </s>
+<s> Si quieren vénganse para acá y ahorita lo subimos no? </s>
+<s> O que van a hacer? </s>
+<s> No, todavia </s>
+<s> no </s>
+<s> Voy a ver qué piden </s>
+<s> A deberás, ahorita le digo a.mi papá </s>
+<s> Ahorita voy </s>
+<s> Le doy de comer a los perros y voy </s>
+<s> Ya te lo sueño </s>
+<s> Y ando todavía malo de los bronquios </s>
+<s> Jajajaja es que tan fumando </s>
+<s> Que lap es? </s>
+<s> Cuando puedas me mandas exactamente cuál es? </s>
+<s> En configuración </s>
+<s> Te vas a acerca del sistema o algo asi </s>
+<s> Sale </s>
+<s> Que 550 </s>
+<s> Ya con sistema operativo, antivirus y office </s>
+<s> Si </s>
+<s> Bueno, el disco duro lo compramos nosotros </s>
+<s> Por Amazon, si quieres te lo pido </s>
+<s> De 240 o 480 GB? </s>
+<s> El de 240 cuesta 400 </s>
+<s> Y el otro 550 </s>
+<s> Cómo ves? </s>
+<s> Sale, </s>
+<s> al rato lo pido </s>
+<s> Pásame una foto de la lap porfa </s>
+<s> Sale </s>
+<s> Lo pido con la tarjeta de mi mamá, y le transfieres? </s>
+<s> Sale </s>
+<s> Ya lo pedí </s>
+<s> Ya nomás que llegue </s>
+<s> Y ya yo le llevo la lap si quieres </s>
+<s> Nomás que llegue el disco y vemos </s>
+<s> Creo que sí ya llegó </s>
+<s> Me dijo que si se la dejo el martes como a la 1 </s>
+<s> Farmacia GI El Porvenir </s>
+<s> Si quieres yo la llevo cuando salga de la escuela </s>
+<s> Ese día salgo a las 12 </s>
+<s> Sale </s>
+<s> Ahí cuando puedas me la traes? </s>
+<s> Sales </s>
+<s> ya la paso a dejar mi papa </s>
+<s> cualquier cosa te aviso </s>
+<s> Que ya quedó tu </s>
+<s> lap </s>
+<s> Pues no, nomás tendrías otro disco duro jaja </s>
+<s> 550 </s>
+<s> Si quieres ahí cuando te la lleve me lo pasas </s>
+<s> Mi papá va a pasar por ella en la tarde </s>
+<s> Oyee, </s>
+<s> mañana va a haber comida o algo? </s>
+<s> Ah, lo que tu quieras </s>
+<s> Para decirle a Montse </s>
+<s> Sale </s>
+<s> Jaja </s>
+<s> Vodka si quieres </s>
+<s> Tequila hay en la casa no? </s>
+<s> Del que quieres </s>
+<s> El que a ti te guste </s>
+<s> Se puedo con Sprite o con jugo de aranadno </s>
+<s> Tia, sabes dónde es el trabajo de mi tío? </s>
+<s> Si, ya le dijo mi mamá </s>
+<s> Que si pueden traer Canadá dry </s>
+<s> Y hielos porfa </s>
+<s> Si, eso es lo chido </s>
+<s> Y sin ir a oficina </s>
+<s> Si, también la actitud es importante </s>
+<s> Echar choro </s>
+<s> Sales, lo voy a seguir pensando jaja </s>
+<s> Ya </s>
+<s> Ahhh </s>
+<s> Ya ni modo </s>
+<s> Ya pa </s>
+<s> la otra </s>
+<s> Sales, </s>
+<s> gracias </s>
+<s> Eii </s>
+<s> Dice mi mamá que como vas </s>
+<s> Que cuando vengas pa acá, te traigas a mi tío </s>
+<s> Andas ocupada? </s>
+<s> Ando aquí con la mamá de Montse para ver si le puedes explicar </s>
+<s> Jajaja dame 5 en lo que acaba de comer </s>
+<s> Sale </s>
+<s> Sale </s>
+<s> Si no, te paso su numero </s>
+<s> Dice que si te ayuda, pero que le expliques bien a </s>
+<s> que </s>
+<s> Jajajajajja </s>
+<s> Erika </s>
+<s> Cuanto tiene de uso? </s>
+<s> O sea, es nueva? </s>
+<s> O cuanto tiempo la han usado? </s>
+<s> Eliminaste este mensaje. </s>
+<s> Deja sigo investigando </s>
+<s> Ah si, vi otra yo </s>
+<s> Pues yo creo que si esta más o menos bien </s>
+<s> Igual y si debe de andar en unos 14 igual </s>
+<s> Te lo va a entregar con todo eso? </s>
+<s> No me acuerdo </s>
+<s> Entonces si esta bien </s>
+<s> Mmm, depende que tanta información traiga en el disco duro </s>
+<s> Ya, ya llegue jaja </s>
+<s> No, todavía no, falta que lleguen todos </s>
+<s> Voy jaja </s>
+<s> Ya llego mi papa </s>
+<s> Sales </s>
+<s> Dice mi mamá que se vayan en un solo carro </s>
+<s> Para que no saques el tuyo </s>
+<s> No, no me da tiempo </s>
+<s> Tengo que chambear </s>
+<s> Si </s>
+<s> Que este listo como cuarto para las 6 </s>
+<s> Es que de aqui vamos a ir a casa de montse, y ya de ahi nos vamos Montse, nico, cedric y yo por vane al gym, y ya de ahi nos vamos a torres </s>
+<s> Para llegar alla como a las 8 </s>
+<s> No, perdon cuarto para las 7 jaja </s>
+<s> Sale, entonces al rato nos ponemos de acuerdo como nos </s>
+<s> vamos </s>
+<s> Sale, si me lo llevo y lo cuido </s>
+<s> Nosotros como a las 8 </s>
+<s> Ahí te tomas un cofee </s>
+<s> Con que presupuesto? </s>
+<s> Puede ser este o el primero </s>
+<s> Yo digo que ahi se van </s>
+<s> El que te guste mas jaja </s>
+<s> Me voy a morir </s>
+<s> Sales, si ya le dije </s>
+<s> Va </s>
+<s> Dice montse que </s>
+<s> si un absolut azul y jugo de arandano </s>
+<s> Porfa </s>
+<s> Hola </s>
+<s> , sí </s>
+<s> No, porque? </s>
+<s> No estoy, pero ahí anda mi papá </s>
+<s> Hoy no voy a llegar </s>
+<s> Vamos mejorando </s>
+<s> No me pare </s>
+<s> Gracia tiaaa </s>
+<s> Que si vas a venir </s>
+<s> Sales </s>
+<s> Que pues </s>
+<s> Ya están? </s>
+<s> Danos 5 </s>
+<s> Si es de 7 en adelante, pero la otra vez llegamos como 6:30, y nos hicieron pasar a la pista y ahí esperar, pero ya con pista asegurada </s>
+<s> Yo digo que nos vayamos como 6:15 max </s>
+<s> Ahí vamos </s>
+<s> Si, todo bien </s>
+<s> Ya esta en su casa y todo </s>
+<s> Gracias </s>
+<s> Que pacho? </s>
+<s> Yo creo que te vas a tener que llevar a vane y a ruben </s>
+<s> O al don y a mi amigo </s>
+<s> Escoge </s>
+<s> Porque mi tío pepe le falta como 40 min para llegar </s>
+<s> Ya va </s>
+<s> Sale </s>
+<s> Si, también es bueno </s>
+<s> Pus en realidad todos son buenos </s>
+<s> Que juegos le gustan a nico? </s>
+<s> Ah pues si, igual le sirve que puede jugar con fer </s>
+<s> Si, todo va a salir bien </s>
+<s> No ya </s>
+<s> no </s>
+<s> Pa que tanto sufrimiento por jugar </s>
+<s> Si voy a quedar bien, pero ya no quiero jugar otra vez </s>
+<s> Si eso si </s>
+<s> Si, hacer bien la terapia </s>
+<s> Sale, </s>
+<s> gracias </s>
+<s> En dairy queen </s>
+<s> Sales, </s>
+<s> gracias </s>
+<s> Que onda tia </s>
+<s> Si, todo bien </s>
+<s> Aqui chambeando </s>
+<s> Bien, ahi la llevo </s>
+<s> Ya la doblo más, la siento bien </s>
+<s> Ya mañana me quitan los puntos </s>
+<s> Oye tía, el sábado podemos ir por montse cuando salgamos porfa? </s>
+<s> No se, a la hora que tu me digas </s>
+<s> Sales </s>
+<s> Gracias </s>
+<s> No, ya puedo moverme bien </s>
+<s> Si, es </s>
+<s> ese </s>
+<s> No se si son buenos, es el que nos recomendo el doc </s>
+<s> No, empiezo en una semana </s>
+<s> Sales </s>
+<s> En cuanto esta? </s>
+<s> Si están caras </s>
+<s> Para rodillas </s>
+<s> operadas nomas </s>
+<s> Si, a mi me mandaron 20 sesiones </s>
+<s> El doc dijo que al mes </s>
+<s> Sales </s>
+<s> No, si puedo caminar </s>
+<s> Ahí salto a lado 8 </s>
+<s> Salgo </s>
+<s> Sale </s>
+<s> Si, ayer me los trajo mi mama </s>
+<s> Gracias tia </s>
+<s> Ya lo estoy dejando </s>
+<s> Ya nomas cuando tomo </s>
+<s> Oye tia, tu casa es el numero 52? </s>
+<s> O igual 50 y algun interior? </s>
+<s> Es que me pidieron referencias vecinales para una nueva chamba donde voy a entrar </s>
+<s> Sales </s>
+<s> Si </s>
+<s> Ah sales, me avisas pa ir por el porfa </s>
+<s> Llegando si se puede porfa </s>
+<s> Si, no te preocupes </s>
+<s> Es que lo ocupan mañana a las 3 de la mañana </s>
+<s> mis papás </s>
+<s> Sales </s>
+<s> , si no a mi mamá </s>
+<s> Si jaja </s>
+<s> O dicen mis papas que si ya llehas muy tarde que si lo puedes dejar en el parabrisas del carro o abajo de nuestra puerta </s>
+<s> Es que es para vane, que mañana la van a llevar a sacar cita a un psiquiatra </s>
+<s> Sales, </s>
+<s> gracias tía </s>
+<s> Vas ir con Male? </s>
+<s> Nomas pa ver si nos vamos a echar unas 🍺 </s>
+<s> Salees </s>
+<s> Nos deben las chelas </s>
+<s> Saca las 🍺 </s>
+<s> Saca </s>
+<s> Tia </s>
+<s> Las chelas </s>
+<s> Ya ahora </s>
+<s> Ya llego Mon </s>
+<s> Montse </s>
+<s> Es el de boca juniors </s>
+<s> No, es la bombonera de argentina </s>
+<s> Que pacho </s>
+<s> Mi papá </s>
+<s> si </s>
+<s> Yo ya voy para la escuela </s>
+<s> Conoces plaza torres? </s>
+<s> Si no ahorita te mando la ubi </s>
+<s> Ah si, pues ahí en frente </s>
+<s> Si </s>
+<s> ubicación: </s>
+<s> Si, nada más me avisas para salir por ti </s>
+<s> Bueno, llegas con el poli y le dices que vas a un TT </s>
+<s> Si no te deja pasar, ya voy por ti </s>
+<s> Empieza a las 10 </s>
+<s> Tons como 9:30 más o menos </s>
+<s> Ya llegaste? </s>
+<s> Déjame le digo a mi papa que vaya por ti </s>
+<s> En donde </s>
+<s> Como creo </s>
+<s> Por donde esta la tierra </s>
+<s> Sales, ahí va mi papa </s>
+<s> Uchala, yo creo que hasta el jueves tia </s>
+<s> Ah </s>
+<s> si es cierto </s>
+<s> Al rato me doy una vuelta </s>
+<s> Ya, me doy una vuelta al rato que vaya a dejar a montse </s>
+<s> Ah, si, como a las 10 </s>
+<s> Ya llegue </s>
+<s> Ya </s>
+<s> Todavía no llegan </s>
+<s> Se me hace que ni van a llegar </s>
+<s> Si </s>
+<s> Ya no </s>
+<s> Antes si, casi diario </s>
+<s> Uy no, yo llego.como a las 12 </s>
+<s> Si </s>
+<s> Pero perame </s>
+<s> No ha llegado nadie creo </s>
+<s> Mandale mensaje a mi madre mejor </s>
+<s> Es que mi mamá todavía no llega </s>
+<s> Y mi padre creo tampoco </s>
+<s> Pero yo ni traigo carro </s>
+<s> Ya llegaron mis papas? </s>
+<s> Si, dijeron que ya iban en camino </s>
+<s> Nomas que lleguen mis papás y ya meten la camioneta </s>
+<s> Si yo ya ando bien pedo </s>
+<s> Ah bueno, ta bien </s>
+<s> Ahí que les toque adelante a mis padres </s>
+<s> Pues ya ni modo </s>
+<s> Que les toque atras </s>
+<s> Ya llegue tia </s>
+<s> Para la camioneta </s>
+<s> Sale </s>
+<s> null </s>
+<s> Si </s>
+<s> Ya llegue </s>
+<s> Nos abren </s>
+<s> Saca las chelas </s>
+<s> Si, si escuche </s>
+<s> Ya </s>
+<s> Ya meten la camioneta </s>
+<s> Si </s>
+<s> Si, ya la puede meter </s>
+<s> Como a las 9 yo creo </s>
+<s> Si, les mando mensaje </s>
+<s> Ya llegue </s>
+<s> Si, ya la pueden meter </s>
+<s> Ya llegue </s>
+<s> Descarga la aplicación de tu cel </s>
+<s> Si la descargaste? </s>
+<s> Los puedes enviar, o tenerlos todos tu, no hay bronca </s>
+<s> Puedes ponerlos en tu billetera de Google.para poder acceder a ellos son intenet </s>
+<s> Sales </s>
+<s> Sales, ahorita voy </s>
+<s> Nos abren? </s>
+<s> null </s>
+<s> Sales </s>
+<s> Ya </s>
+<s> Acabamos de regresar </s>
+<s> Pues lo rojo es porque tiene los vasos capilares ya muy delgados, nomas es quitar la hemorragia </s>
+<s> Y si trae una pequeña paralisis, ya le mando vitamina b12 para eso </s>
+<s> Oye tía, tienes algun contacto de mudanza? </s>
+<s> Me p4egunta montse </s>
+<s> Sale </s>
+<s> Sales, hartas </s>
+<s> gracias </s>
+<s> Si, ahorita le digo </s>
+<s> Dice que si, pero que si le marcas el miercoles porfa, ahorita anda viendo cosas de su mudanza </s>
+<s> Vava </s>
+<s> Pantalón y camisa </s>
+<s> Sip </s>
+<s> Si </s>
+<s> Que abrió otra fecha la chaquetas </s>
+<s> Que mañana es la preventa </s>
+<s> Los boletos a las 2 </s>
+<s> Igual y si alcanzas </s>
+<s> Los 6 porfa </s>
+<s> Sales </s>
+<s> Busco vender </s>
+<s> otro </s>
+<s> Si te salen 8 en la aplicación no? </s>
+<s> Sale </s>
+<s> Sales </s>
+<s> Ni se </s>
+<s> Esta bien rara esa cosa </s>
+<s> Déjame investigar bien </s>
+<s> Gracias profesora </s>
+<s> Vale profesora, muchas gracias </s>
+<s> Yo no puedo el día viernes profesora): </s>
+<s> Vale profesora, muchas gracias </s>
+<s> Buen día </s>
+<s> Vale profesora </s>
+<s> Eliminaste este mensaje. </s>
+<s> Perfecto profesora </s>
+<s> Gracias profesora </s>
+<s> nos compartieron esta información en la reunión informativa profesora </s>
+<s> Perfecto profesora, </s>
+<s> gracias </s>
+<s> Perfecto profesora, </s>
+<s> gracias </s>
+<s> Buena tarde profesora, a qué hora será la reunión del día de mañana? </s>
+<s> Ok, nos vemos mañana </s>
+<s> Igual yo profesora </s>
+<s> igual yo profesora </s>
+<s> Muchas gracias profesora </s>
+<s> Ok profesa </s>
+<s> Yo </s>
+<s> si puedo mañana a las 12 </s>
+<s> En un momento le pasó el link profesora </s>
+<s> Se le fue la luz </s>
+<s> este es el link donde hice la arquitectura profesaora </s>
+<s> J cheminformatics </s>
+<s> Perfecto profesora, le podemos confirmar el día de mañana? </s>
+<s> Podemos el día martes después de las 12 profesora, a la hora que usted nos diga </s>
+<s> Hola, yo estoy en casa esperando a la reunion profesora </s>
+<s> Eliminaste este mensaje. </s>
+<s> O lo dejamos así profesora, es que no entendimos muy bien como modificar la arquitectura </s>
+<s> Ok profesora, seguimos trabajando en las otras correcciones </s>
+<s> Mañana a que hora esta libre usted? </s>
+<s> Si profesora, de hecho, hice la prueba como con 4 datasets diferentes, y es muy raro que lleguen incluso a .7 </s>
+<s> Vale profesora </s>
+<s> Ok profesora </s>
+<s> Si hay muchos más valores profesora </s>
+<s> Pero igual hay que agregar más filtros, porque por ejemplo de en 0.6, hay muchísimos valores, y no se ve bien la matriz de correlación </s>
+<s> Hola profesora, yo solo estoy esperando a que me manden la constancia </s>
+<s> Buenas tardes profesora </s>
+<s> Ya me dieron de alta en el imss, podría mandar ya el correo para mi por favor? </s>
+<s> Y una preguntota mas profesora, nos podemos reunir el día jueves a la 1:30? </s>
+<s> Es que el día martes tenemos un compromiso </s>
+<s> Muchisimas gracias profesora </s>
+<s> Muchísimas gracias profesora </s>
+<s> Con la profesora no? </s>
+<s> Disculpa profesora, otra preguntota </s>
+<s> Podría mandar el correo para lo de servicio porfa? </s>
+<s> Gracias </s>
+<s> 2021630589 </s>
+<s> Roberto Rolón Cárdenas </s>
+<s> Muchas gracias profesora </s>
+<s> Gracias profesora, continuo con el proceso </s>
+<s> Hola profesora, no se preocupe </s>
+<s> Que se recupere pronto </s>
+<s> Si profesora </s>
+<s> Hola profesora, buen día, ya actualizamos la tabla de las correlaciones, quedo en el drive también </s>
+<s> En este link: </s>
+<s> Buen día profesora, el día de mañana tendremos reunión con usted a las 12?, o solamente a las 6 </s>
+<s> Vale profesora, buen día </s>
+<s> Hola profesora, a mi el dia viernes a esa hora si se me dificulta porque tengo una junta en mi trabajo </s>
+<s> Muchas gracias profesora, cualquier cosa seguimos al pendiente </s>
+<s> Nos comento que la tercer semana de octubre el podría </s>
+<s> Si profesora </s>
+<s> Hola profesora, claro, le paso el enlace del git </s>
+<s> O puede usar directamente este para clonar el repositorio: </s>
+<s> Con el git clone </s>
+<s> Debe de ejecutar el que esta dentro de interfaz, que dice menu.py </s>
+<s> Y pues antes de eso, instalar todas las librerias si es que no tiene instalada alguna </s>
+<s> Cualquier cosa aqui ando conectado profesora </s>
+<s> No lo usamos ese profesora jaja </s>
+<s> Puede utilizar cualquiera de los dos profesora </s>
+<s> Algun limpio, o alguno </s>
+<s> que no este limpio </s>
+<s> Nadamas elimina las columnas que tengan ceros </s>
+<s> O sea, los limpios ya no traen esa columna </s>
+<s> Yo si puedo profesora </s>
+<s> Va profesora, gracias </s>
+<s> Si nos comentó profesora, quedamos que el día jueves </s>
+<s> Gracias </s>
+<s> Buen día profesora, le comparto mis avances de lasso </s>
+<s> Y de paso recordarle del artículo y el vídeo </s>
+<s> Hola profesora, yo tuve que retirarme porque tengo que ir a chambear </s>
+<s> Pero cualquier cosa, me avisan axel y vic </s>
+<s> Buen dia profesora, puede el día viernes a las 12? </s>
+<s> Podemos ir a su cubiculo </s>
+<s> Hola profesora, buena noche </s>
+<s> Aqui molestandola, es que tenemos un problema jeje </s>
+<s> Al momento de filtrar por correlaciones con +-.6, solo me quedan dos columnas en mi dataset </s>
+<s> Bueno, lo probé con el más grande, puedo probar con todos los de herbicidas a ver que tal </s>
+<s> Por videoconferencia que dia profesora? </s>
+<s> Puede ser presencial profesora' </s>
+<s> ? </s>
+<s> Buenas noches profesora, una preguntota, nos podria pasar el diagrama que va como en cascada, que explica el flujo mas o menos de lo que hacemos, para poder nosotros adaptar el nuestro </s>
+<s> Solo tiene que ser uno? </s>
+<s> Lo platicamos profesora jaja </s>
+<s> De todas maneras, si podemos ir los 3 </s>
+<s> Si, ahorita le decimos.profa </s>
+<s> Creo que mis compañeros están dormidos jaja </s>
+<s> Me comenta vic que el se ofrece como voluntario </s>
+<s> Pero igual vamos a acudir los 3 profesora </s>
+<s> Si, yo si puedo profesora </s>
+<s> Buen día profesora, si nos reuniremos a las 12? </s>
+<s> Disculpe profesora, si el video del tutorial dura 56 segundos es mucho? </s>
+<s> Mmm, para la presentacion o para el apoyo que se muestra en la interfaz? </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Entonces, el de 56 seg, si lo podemos agregar asi a la presentacion e ir explicando verdad? </s>
+<s> Muchas gracias profesora </s>
+<s> Si profesora, puedo agarrar estos dos datasets para hacer una gráfica parecida a esta </s>
+<s> . </s>
+<s> Serian dos gráficas no? </s>
+<s> Una por dataset </s>
+<s> Lo que no entendí muy bien es como muestro el intercepto, o solo que se vea así como en la grafica </s>
+<s> Mmm, no es una gráfica por dataset? </s>
+<s> Y ahí se ponen todos de cada metodo </s>
+<s> Ah sisi </s>
+<s> Pero solo es una gráfica que compare los 3 modelos no? </s>
+<s> Aunque haya algunos descriptores que no estén en alguno </s>
+<s> Vava </s>
+<s> Si, ahorita solo un ejemplo </s>
+<s> Vale profesora </s>
+<s> Disculpe profesora, estoy revisando, y me acabo de dar cuenta que estos resultados son antes de quitarle el ld50 sin el log, entonces ya haciéndolo sin eso, lo más alto es </s>
+<s> esto </s>
+<s> Usamos este para la grafica? </s>
+<s> Entonces que hacemos profesora? </s>
+<s> Porque el punto era comparar los 3 no? </s>
+<s> Si, aquí están los 3 metodos </s>
+<s> Pero voy a hacer otra prueba </s>
+<s> Lo voy a hacer sin normalizae </s>
+<s> Si, pero se supone que no tiene validación cruzada </s>
+<s> No, si dividimos, pero solo una vez </s>
+<s> Voy a hacerlo todos con .1 </s>
+<s> Ahorita ridge tenia 1 </s>
+<s> Le voy a poner .1 </s>
+<s> todos y sin normalizar, a lo.mejor así mejora y ya después implementamos con validación cruzada </s>
+<s> Ahorita nomas pa que no se vea tan mal </s>
+<s> Con lasso y elastic net con. </s>
+<s> 1 y ridge 1, elastic y lapso salian bien </s>
+<s> Ahorita salen así, y todos tienen .1 </s>
+<s> Aqui esta saliendo mal ridge nadamas </s>
+<s> Es ridge el que salio negativo </s>
+<s> Es lo que estoy probando profesora </s>
+<s> No encuentro la forma de mejorar ridge profesora </s>
+<s> Le puse lambda </s>
+<s> 20 </s>
+<s> Y se quedo en -.72 </s>
+<s> Con lambda 10000 ya paso a positivo jaja </s>
+<s> .022 </s>
+<s> Ahorita le puedo poner uno muy muy grande nadamas para ejemplificar la grafica no? </s>
+<s> Ya despues lo arreglamos xd </s>
+<s> O no? </s>
+<s> Jaajaja, es maquillar resultados </s>
+<s> Reporto esa en la grafica comparativq </s>
+<s> Si, voy </s>
+<s> Ese como seria, cuanto vale y cuando la matriz de coeficientes es cero verdad profesora </s>
+<s> Tengo dudas con el intercepto profesora, no se bien que representa, o como sacarlo </s>
+<s> Ya quedo </s>
+<s> Podría ser antes, o como a las 8 profesora? </s>
+<s> Disculpe profesora, que nos recomienda ponerles a los sinodales como de comer </s>
+<s> Una agüita y que mas? </s>
+<s> jaja </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Vinimos por algo de comer </s>
+<s> Ya estamos en el póster </s>
+<s> Todo bien profesora </s>
+<s> Igual nos sirvió porque nos preguntaron unas cosas que ni sabíamos bien, y ya nos lo contestó después la doctora karina </s>
+<s> Buen día profesora, a que hora tiene chance para ver si me puede firmar lo del servicio </s>
+<s> Buen día profesora, esta en su cubículo? </s>
+<s> El día viernes a que hora la puedo encontrar profesora </s>
+<s> Vale profesora, muchas gracias </s>
+<s> Vale, si profesora </s>
+<s> Jajaja </s>
+<s> Si profesora, si </s>
+<s> podemos </s>
+<s> Gracias profesora </s>
+<s> Buenas noches profesora, el día de mañana a que hora la puedo encontrar? </s>
+<s> Si profesora </s>
+<s> A esa hora ya estoy ahí profesora </s>
+<s> De que lado profesora? </s>
+<s> Vale profesora, yo también vengo llegando </s>
+<s> Ya ando aquí en los checadores </s>
+<s> profesora </s>
+<s> Buen día profesora, una preguntota, usted si encontro que lambda usan en el libro? </s>
+<s> Porque la menos por mi parte no lo encontre </s>
+<s> Y tambien le queria decir, que ni si quiera las correlaciones dan exactamente igual </s>
+<s> Casi todas son parecidas, pero hay unas que si varian </s>
+<s> Pero supongo que esta raro, porque al sacar las correlaciones con la interfaz, pues si da la linea diagonal de unos, entonces no puede estar mal o si? </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Vale profesora, </s>
+<s> lo checamos </s>
+<s> AHorita le confirmo profesora </s>
+<s> Mammals acute oral LD50 -log10(mol/kg) </s>
+<s> Esa es con el log </s>
+<s> Lo mas seguro es que me operen el 9 de marzo profesora </s>
+<s> Yo ya estoy profesora </s>
+<s> Repruebelo profesora </s>
+<s> Si, nosotros también vamos a agarrar así el 15% para lo de prediccion? </s>
+<s> Si profesora, el día de mañana si me conecto </s>
+<s> Ya el sábado profesora </s>
+<s> El viernes me internan </s>
+<s> Gracias profesora </s>
+<s> La funcion objetivo seria el error cuadratico medio, o cual seria profesora? </s>
+<s> O R2? </s>
+<s> El 8 es la pendiente y el -10 el intercepto <Se editó este mensaje. </s>
+<s> > </s>
+<s> Vale profesora, lo implemento para minimizar el error </s>
+<s> En cuanto lo implemente para el error lo grafico </s>
+<s> Pero el R^2 esta bien </s>
+<s> Y esas son las y reales y las que predijo y si son similares </s>
+<s> Entonces, no se que este pasando ahi </s>
+<s> Para R^2, lo hago con el score de la misma prediccion </s>
+<s> Para el MSE, lo use primero con esta: mean_squared_error </s>
+<s> Y despues a mano asi: def mse(actual, predicted): </s>
+<s> Pero ambas salen igual </s>
+<s> Si, esa grafica, segun es despues de minimizar el error, pero no le movio nada </s>
+<s> Eso es porque ya es el mas optimo profesora? </s>
+<s> Si </s>
+<s> Es para asignar el coeficiente y el intercepto a initial_scope e initial_intercept </s>
+<s> No se si este bien implementado asi profesora </s>
+<s> Entonces, es mejor tambien empezar aleatoreamente? </s>
+<s> Voy </s>
+<s> Pus hice lo que me dijo la profa con la formula </s>
+<s> Y estabamos asignando el coeficiente al intercepto y al reves </s>
+<s> Todo bien profesora </s>
+<s> Ya ando en casa recuperándome </s>
+<s> La anestesia si me dolió un buen </s>
+<s> Me pusieron la que le ponen a las embarazadas </s>
+<s> Y pues ahorita la rodilla anda toda hinchada, pero ahí la llevo </s>
+<s> Si profesora, ya para la presentación de tt estaré por alla </s>
+<s> Vale profesora </s>
+<s> Seguimos en contacto, que se mejor su hija </s>
+<s> Recuperense pronto profesora </s>
+<s> Hola profesora, yo prefiero a las 8 </s>
+<s> No se los demás </s>
+<s> Vale profesora </s>
+<s> Vale profesora, para tomarlo en cuenta </s>
+<s> Hola profesora, bien, ya empezando a caminar </s>
+<s> Si, sin problema </s>
+<s> Si profesora, ahi la llevo, ya en un mes yo creo andare por alla buscando firmas para mis reportes de servicio </s>
+<s> Va que va </s>
+<s> Hola profesora, todo bien, usted como esta? </s>
+<s> Yo el día de hoy no puedo profesora, podría el dia de mañana </s>
+<s> Vale profesora, todos podemos a esa hora </s>
+<s> Ya implemente el filtro de los tipos </s>
+<s> Yo de preferencia en la mañana profesora </s>
+<s> Si, ahorita como lo deje es que cuando abra el dataset realice los mismos filtrados que antes, y una vez que acabe seleccionar con que tipo quiere trabajar </s>
+<s> Si, por mi esta bien </s>
+<s> El día de mañana a que hora la puedo encontrar profesora? </s>
+<s> Para mis firma de servicio </s>
+<s> O si no, me doy una vuelta el viernes mejor </s>
+<s> A las 8 </s>
+<s> Si profesora, por favor </s>
+<s> Peguele profesora </s>
+<s> Entonces tenemos reunión mañana y el viernes profesora? </s>
+<s> Hoy a penas voy a ver como lo implemento profesora </s>
+<s> Va que va </s>
+<s> Vas @5215521890218 </s>
+<s> Si tengo chance le echo un ojo profesora </s>
+<s> A que hora nos reuniremos hoy profesora? </s>
+<s> Vale profesora </s>
+<s> Hola profesora </s>
+<s> , buena tarde </s>
+<s> Aqui estan los datasets </s>
+<s> Este es el diccionario </s>
+<s> tipos_descriptores = { </s>
+<s> Una duda profesora, en nuestro caso, el numero de dimensiones, es el numero de descriptores seleccionados o el numero de descriptores seleccionados +1 </s>
+<s> Creo que sin el +1 verdad? </s>
+<s> Ah si, es correcto </s>
+<s> Que sala es profesora? </s>
+<s> Si profesora, sin problema </s>
+<s> Si profesora, hice todas las correcciones de la interfa </s>
+<s> No profesora </s>
+<s> Voy profesora </s>
+<s> Para cada archivo, se refiere a cada archivo de los tipos verdad profesora? </s>
+<s> Ah si, vale profesora </s>
+<s> En el punto 4, quier3 que se muestren todas en la interfaz, o en la interfaz solo 10, y al descargarse que se muestren todas? </s>
+<s> Vale profesora </s>
+<s> Lo implemento </s>
+<s> Que tal profesora, ya quedaron los cambios, para el día de mañana ya tengo las capturas de los 19 </s>
+<s> Son todos con los 3 métodos? </s>
+<s> Vale profesora </s>
+<s> Solo probé este profesora </s>
+<s> Pero más tarde pruebo todos, es que no ando en mi casa </s>
+<s> Eliminaste este mensaje. </s>
+<s> Perdon por la hora jeje </s>
+<s> Hola profesora, más tarde se los mando </s>
+<s> Me parece que es este profesora </s>
+<s> Ahi la llevamos profesora </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Buen día profesora, quería preguntarle si hay problema que ya nos reunamos como a las 9:20 </s>
+<s> Porque ya entre a otra chamba y a las 8:30 tengo junta todos los días </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Vale profesora </s>
+<s> No sea chillon </s>
+<s> Hace del punto 1 al punto 4 relacionado con la interfaz (El punto 3 y 4 van de la mano). </s>
+<s> Puntos 5,6 y 7 de lo relacionado con la interfaz. </s>
+<s> Si profesora </s>
+<s> Entonces si profesora? </s>
+<s> Ah vale profesora jaja </s>
+<s> Si, pero el problema es que los métodos originales tardan eso </s>
+<s> Ahhhh ya </s>
+<s> Vale profesora </s>
+<s> Buen dia profesora, el dia de mañana nos reunimos a las 9? </s>
+<s> Eliminaste este mensaje. </s>
+<s> Eliminaste este mensaje. </s>
+<s> Arreglar lo de las variables y reducirlas, mas instructivo, y ver que onda con lo de las pruebas nuevas </s>
+<s> Buen día profesora </s>
+<s> Disculpe, se puede invitar gente al tt? </s>
+<s> Si </s>
+<s> Bueno, es que es como el termino de tesis no? </s>
+<s> Es que me anda preguntando mi mamá </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> Buen dia profesora, disculpe </s>
+<s> Pero creo que es porque solo tiene 15 filas </s>
+<s> Que hago en ese caso profesora? </s>
+<s> E igualmente me salio esto para los tres datasets de fungicidas con elastic net </s>
+<s> Si profesora </s>
+<s> Pero salio otro problema, los dataseys de fungicidas no todos tienen las mismas filas </s>
+<s> Entonces para hacer el modelo que ocupe más ee un datasey se muere </s>
+<s> Nos conectamos por la noche profesora </s>
+<s> A que hora tiene chance? </s>
+<s> Vale, si profesora es rapido </s>
+<s> Si, justo </s>
+<s> Si profesora, o sea al momento de juntarlos </s>
+<s> Si, menos en herbicidas </s>
+<s> Definimos 3 datasets por cada modo de acción </s>
+<s> Y para herbicidas, definimos los 3 que tienen 25 filas </s>
+<s> Nadamas asi lo concateno </s>
+<s> Si tienen los mismos descriptores profesora? </s>
+<s> No </s>
+<s> Tengo que empezar otra vez </s>
+<s> Nomas iba concatenando descriptores digamos </s>
+<s> Si profesora </s>
+<s> A las 9? </s>
+<s> Va, le paso el meet en una horita </s>
+<s> Listo profesora </s>
+<s> Jijo mano, estas pero enterado de todo amigo </s>
+<s> A cabron, como tan rapido </s>
+<s> Trae turbo tu lap o que tilin </s>
+<s> Vientos tilin </s>
+<s> Ya subiste cambios? </s>
+<s> Jijo mano, que </s>
+<s> eficiente </s>
+<s> Bambi </s>
+<s> Yo ya voy con el segundo herbicida </s>
+<s> Eliminaste este mensaje. </s>
+<s> Eliminaste este mensaje. </s>
+<s> Ok, lo agrego profesora </s>
+<s> Ah si jaja, igual lo corrijo </s>
+<s> Vale profesora </s>
+<s> Seguramente si </s>
+<s> Vale profesora </s>
+<s> En cuanto termine de realizar las pruebas de fungicidas puede subir cambios porfa? </s>
+<s> Jijo mano </s>
+<s> Perfecto </s>
+<s> Ahh si, si esta mal </s>
+<s> Según yo la había puesto bien </s>
+<s> Ahorita lo reviso </s>
+<s> Vale profesora, voy realizando todas las correcciones </s>
+<s> Lambda verdad profesora? </s>
+<s> Los del pso? </s>
+<s> Pero esos pa que si son los mismos durante todo el pso? </s>
+<s> Entonces cuales serian profesora? </s>
+<s> Elastic tiene 2 </s>
+<s> Vale profesora, los imprimo tambien </s>
+<s> Y ya corregi q2, ya sale mejor </s>
+<s> r2 ajustada es la que sigue igual de fea jaja </s>
+<s> Supongo que por el proceso interno que realizan no? </s>
+<s> Ya subi cambios con las correcciones profesora </s>
+<s> El unico tema es r2 ajustada </s>
+<s> Pero esa si debe ser porque son muchos mas descriptores que moleculas </s>
+<s> Lo acabo de corregir profesora </s>
+<s> Pueden bajar cambios porfa? </s>
+<s> Graficaba con max y min de y_test, lo hice con los y_train </s>
+<s> Igual ya corregi las legends </s>
+<s> COn las 200 iteraciones y 50 particulas </s>
+<s> Vale profesora </s>
+<s> Bueno </s>
+<s> No, los nuevos peofesora </s>
+<s> Si </s>
+<s> Ya unidos </s>
+<s> ubiquinol-oxidasa salieron bien feas las r2 ajustadas </s>
+<s> No me acuerdo </s>
+<s> Creo </s>
+<s> que si </s>
+<s> Cuales profesora? </s>
+<s> Ah, de este todavía no se realizan profesora </s>
+<s> . </s>
+<s> Estos son estos profesora </s>
+<s> Este, ahora si no le entendí profesora </s>
+<s> Ahhh, si lo.mostraba, pero lo quite </s>
+<s> Se lo pongo de nuevo profesora? </s>
+<s> Es que no estoy en mi casa profesora </s>
+<s> Así como r2, había un label que decía intercepto </s>
+<s> Vale profesora <Se editó este mensaje. </s>
+<s> > </s>
+<s> Disculpe profesora, ya estuve realizando las uniones asi </s>
+<s> Pero no creo que se pueda profesora, casi en todos nomas sale 1 columna y la de interes </s>
+<s> Eso ya esta arreglado profesora </s>
+<s> Nombre: Roberto Rolón Cáardenas </s>
+<s> Te digo </s>
+<s> Es Cárdenas profesora </s>
+<s> Profesora, el día de mañana a que hora la puedo encontrar en ESCOM para mis firmas de los reportes </s>
+<s> Porfa </s>
+<s> Vale profesora la veo 10:20 </s>
+<s> Buen día profesora, ya anda por acá? </s>
+
+<s> Vale profesora </s>
+<s> Genero otro profesora? </s>
+<s> Profesora, le gustaría tener una copia del disco? </s>
+<s> Buen día profesora, cuanto tenga chance me puede ayudar a validar mis reportes mensuales y el global porfa? </s>
+<s> Vale profesora, </s>
+<s> gracias </s>
+<s> No se profesora, no he investigado </s>
+<s> Para cuando lo necesita? </s>
+<s> Lo investigo y le confirmo </s>
+<s> Si profesora, lo voy revisando </s>
+<s> Listo profesora </s>
+<s> No profesora, el dia de mañana </s>
+<s> no puedo </s>
+<s> Si, el lunes si sin problema </s>
+<s> Yo por la tarde profesora </s>
+<s> Si </s>
+<s> Vale profesora </s>
+<s> Si profesora </s>
+<s> Esperando todavia </s>
+<s> Si profesora, es lo mismo </s>
+<s> Si profesora, si estamos de acuerdo </s>

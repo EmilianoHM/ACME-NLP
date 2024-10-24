@@ -5,6 +5,86 @@ import os
 from collections import Counter
 from itertools import islice
 import csv
+import random
+
+
+def roulette_selection(ngrams, ngram_type=2):
+        # Obtener las probabilidades
+        indice = 4 if ngram_type == 2 else 5
+        probabilities = [float(ngram[indice]) for ngram in ngrams]
+        
+        # Normalizar las probabilidades
+        total_prob = sum(probabilities)
+        probabilities = [p / total_prob for p in probabilities]
+
+        # Generar un número aleatorio y seleccionar un n-grama basado en las probabilidades
+        r = random.random()
+        
+        cumulative_prob = 0.0
+        for i, prob in enumerate(probabilities):
+            cumulative_prob += prob
+            if r <= cumulative_prob:
+                return ngrams[i]
+            
+def generate_sentence(ngram, data):
+        sentence = []
+
+        if ngram == 3:
+            #SI en el mismo ngframa vienen tanto inicio como fin de oracion, eliminar esa fila, pero solo si estan ambas
+            data = [ngram for ngram in data if '<s>' not in ngram or '</s>' not in ngram]
+            
+
+        # Seleccionar el primer n-grama aleatoriamente
+        data_inicial = [ngram for ngram in data if '<s>' in ngram]
+        data_siguiente = [ngram for ngram in data if '<s>' not in ngram]
+        selected_ngram = roulette_selection(data_inicial, ngram)
+        if selected_ngram is None:
+            return "No se pudo generar un enunciado."
+
+        # Agregar los términos iniciales según el tipo de n-grama
+        if ngram == 3:
+
+            sentence.extend([selected_ngram[1], selected_ngram[2]])  # Agrega 2 términos
+            context = selected_ngram[2]       
+        elif ngram:
+            sentence.append(selected_ngram[1])  # Solo agrega 1 término
+            context = selected_ngram[1]
+        
+        # Continuar agregando palabras hasta llegar a </s>
+        while True:
+           # Seleccionar el siguiente n-grama aleatoriamente
+            print("Contexto:",context)
+            # for ngram in data_siguiente:
+            #     if ngram[0] == context:
+            #         print(ngram)
+            data_siguiente1 = [ngram for ngram in data_siguiente if ngram[0] == context] 
+            print("Data siguiente:",data_siguiente1)           
+            selected_ngram = roulette_selection(data_siguiente1, ngram)
+            
+            if selected_ngram is None:
+                break
+            
+            # Agregar el siguiente término a la oración y actualizar el contexto
+            if ngram == 3:
+                new_word = selected_ngram[2]
+                sentence.extend([selected_ngram[1], selected_ngram[2]])
+                context = selected_ngram[2]
+            elif ngram == 2:
+                new_word = selected_ngram[1]
+                sentence.append(new_word)
+                context = selected_ngram[1]
+
+            if ngram == 3:
+                if selected_ngram[2] == '</s>':
+                    break
+            elif ngram == 2:
+                if selected_ngram[1] == '</s>':
+                    break
+
+            
+        
+        sentence = sentence[:-1]
+        return ' '.join(sentence)
 
 # Crear ventana principal
 class AplicacionModelosLenguaje:
@@ -290,7 +370,36 @@ class AplicacionModelosLenguaje:
         print(f"Archivo de trigramas generado: {ruta_salida}")
 
     def cargar_modelo(self):
-        print("Cargar modelo de lenguaje...")
+        archivo = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
+        if archivo:
+            nombre_archivo = os.path.basename(archivo)
+            self.entry_busqueda3.delete(0, tk.END)
+            self.entry_busqueda3.insert(0, nombre_archivo)
+            print(f"Modelo de lenguaje cargado: {nombre_archivo}")
+
+    def generar_oracion(self):
+        
+        archivo = self.entry_busqueda3.get()
+        ngram = 2
+        ngrams = []
+        with open(archivo, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            #Si en el csv viene la columna Term 3, es un trigramas si no es un bigrama
+            header = next(reader)
+            if "Term 3" in header:
+                ngram = 3
+            for row in reader:
+                ngrams.append(row)
+        
+        #Generar oración
+        sentence = generate_sentence(ngram, ngrams)
+        print(f"Oración generada: {sentence}")
+        
+        self.text_generated.delete(1.0, tk.END)
+        self.text_generated.insert(tk.END, sentence)
+
+        
+
 
     def predecir_palabra(self):
         palabra_inicial = self.entry_word.get()
@@ -298,9 +407,6 @@ class AplicacionModelosLenguaje:
 
     def agregar_palabra(self):
         print("Palabra añadida")
-
-    def generar_oracion(self):
-        print("Generar oración...")
 
     def agregar_modelo(self):
         print("Modelo agregado")
