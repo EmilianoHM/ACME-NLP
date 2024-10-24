@@ -7,6 +7,7 @@ from itertools import islice
 import csv
 import random
 
+ngrams_global = []
 
 def roulette_selection(ngrams, ngram_type=2):
         # Obtener las probabilidades
@@ -367,29 +368,22 @@ class AplicacionModelosLenguaje:
         print(f"Archivo de trigramas generado: {ruta_salida}")
 
     def cargar_modelo(self):
+        global ngrams_global
         archivo = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
         if archivo:
             nombre_archivo = os.path.basename(archivo)
             self.entry_busqueda3.delete(0, tk.END)
             self.entry_busqueda3.insert(0, nombre_archivo)
             print(f"Modelo de lenguaje cargado: {nombre_archivo}")
+            with open(archivo, 'r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    ngrams_global.append(row)
 
     def generar_oracion(self):
-        
-        archivo = self.entry_busqueda3.get()
-        ngram = 2
-        ngrams = []
-        with open(archivo, 'r', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            #Si en el csv viene la columna Term 3, es un trigramas si no es un bigrama
-            header = next(reader)
-            if "Term 3" in header:
-                ngram = 3
-            for row in reader:
-                ngrams.append(row)
-        
+        ngram = 2 
         #Generar oración
-        sentence = generate_sentence(ngram, ngrams)
+        sentence = generate_sentence(ngram, ngrams_global)
         print(f"Oración generada: {sentence}")
         
         self.text_generated.delete(1.0, tk.END)
