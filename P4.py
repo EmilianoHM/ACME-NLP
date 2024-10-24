@@ -2,12 +2,17 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import ttk
 import os
+from collections import Counter
+from itertools import islice
+import csv
 
 # Crear ventana principal
 class AplicacionModelosLenguaje:
     def __init__(self, root):
         self.root = root
         self.root.title("Aplicación de Modelos de Lenguaje")
+
+        self.tokens = []
 
         # Crear un notebook (pestañas)
         self.notebook = ttk.Notebook(self.root)
@@ -51,7 +56,7 @@ class AplicacionModelosLenguaje:
         entry_busqueda.grid(row=0, column=1, padx=10, pady=10)
 
         # Botón "Browse" que permite buscar el archivo
-        boton_browse = tk.Button(marco_modelo, text="Browse", command=self.cargar_archivo)
+        boton_browse = tk.Button(marco_modelo, text="Browse", command=self.cargar_corpus)
         boton_browse.grid(row=0, column=2, padx=10, pady=10)
 
         # Guardar la referencia del cuadro de texto en la instancia de la clase
@@ -75,11 +80,11 @@ class AplicacionModelosLenguaje:
         label_cargar_modelo.grid(row=0, column=0, padx=10, pady=5, sticky="w")
 
         # Cuadro de búsqueda
-        self.entry_busqueda = tk.Entry(marco_prediccion, width=40)
-        self.entry_busqueda.grid(row=0, column=1, padx=10, pady=10)
+        self.entry_busqueda2 = tk.Entry(marco_prediccion, width=40)
+        self.entry_busqueda2.grid(row=0, column=1, padx=10, pady=10)
 
         # Botón "Browse"
-        boton_browse = tk.Button(marco_prediccion, text="Browse", command=self.cargar_archivo)
+        boton_browse = tk.Button(marco_prediccion, text="Browse", command=self.cargar_modelo)
         boton_browse.grid(row=0, column=2, padx=10, pady=5)
 
         # Etiqueta "Write a word (or two words to start a sentence)"
@@ -122,11 +127,11 @@ class AplicacionModelosLenguaje:
         label_load_corpus.grid(row=0, column=0, padx=10, pady=5, sticky="w")
 
         # Cuadro de búsqueda (decorativo por ahora)
-        self.entry_busqueda = tk.Entry(marco_generacion, width=40)
-        self.entry_busqueda.grid(row=0, column=1, padx=10, pady=10)
+        self.entry_busqueda3 = tk.Entry(marco_generacion, width=40)
+        self.entry_busqueda3.grid(row=0, column=1, padx=10, pady=10)
 
         # Botón "Browse"
-        boton_browse = tk.Button(marco_generacion, text="Browse", command=self.cargar_archivo)
+        boton_browse = tk.Button(marco_generacion, text="Browse", command=self.cargar_modelo)
         boton_browse.grid(row=0, column=2, padx=10, pady=5)
 
         # Botón "Generate sentence"
@@ -151,11 +156,11 @@ class AplicacionModelosLenguaje:
         label_cargar_modelo.grid(row=0, column=0, padx=10, pady=5, sticky="w")
 
         # Cuadro de búsqueda
-        self.entry_busqueda = tk.Entry(marco_probabilidad, width=30)
-        self.entry_busqueda.grid(row=0, column=1, padx=10, pady=5)
+        self.entry_busqueda4 = tk.Entry(marco_probabilidad, width=30)
+        self.entry_busqueda4.grid(row=0, column=1, padx=10, pady=5)
 
         # Botones "Browse" y "Add model"
-        boton_browse = tk.Button(marco_probabilidad, text="Browse", command=self.cargar_archivo)
+        boton_browse = tk.Button(marco_probabilidad, text="Browse", command=self.cargar_modelo)
         boton_browse.grid(row=0, column=2, padx=10, pady=5)
 
         boton_add_model = tk.Button(marco_probabilidad, text="Add model", command=self.agregar_modelo)
@@ -195,20 +200,94 @@ class AplicacionModelosLenguaje:
         self.tabla_resultados.insert("", "end", values=("Model n", "0.0001"))
         self.tabla_resultados.grid(row=4, column=0, columnspan=3, padx=10, pady=5)
 
-    def cargar_archivo(self):
-        archivo = filedialog.askopenfilename()
+    def cargar_corpus(self):
+        archivo = filedialog.askopenfilename(filetypes=[("Archivos de texto", "*.txt")])
         if archivo:
             nombre_archivo = os.path.basename(archivo)  # Obtener solo el nombre del archivo
             self.entry_busqueda.delete(0, tk.END)  # Limpiar el cuadro de texto
             self.entry_busqueda.insert(0, nombre_archivo)  # Insertar el nombre del archivo
             print(f"Archivo cargado: {nombre_archivo}")
 
+            # Leer el archivo y procesar los tokens
+            with open(archivo, 'r', encoding='utf-8') as f:
+                lineas = f.readlines()
+                corpus = [linea.strip().split() for linea in lineas if linea.strip()]
+                self.tokens = [token for sublist in corpus for token in sublist]
+
     # Funciones mock para cada acción
     def generar_bigramas(self):
-        print("Generar bigramas...")
+        if self.tokens:
+            nombre_archivo_salida = "bigramas.csv"
+            self.crear_bigramas(self.tokens, nombre_archivo_salida)
+        else:
+            print("Primero debes cargar un archivo.")
 
     def generar_trigramas(self):
-        print("Generar trigramas...")
+        if self.tokens:
+            nombre_archivo_salida = "trigramas.csv"
+            self.crear_trigramas(self.tokens, nombre_archivo_salida)
+        else:
+            print("Primero debes cargar un archivo.")
+
+    def crear_bigramas(self, tokens, nombre_archivo_salida):
+        """
+        Función que genera un archivo CSV con bigramas, sus frecuencias y probabilidades condicionales.
+        """
+        ruta_salida = os.path.join(os.getcwd(), nombre_archivo_salida)
+
+        # Extraer bigramas
+        bigramas = list(zip(tokens, islice(tokens, 1, None)))
+
+        # Contar frecuencias de bigramas y unigrama (término único)
+        conteo_bigramas = Counter(bigramas)
+        conteo_unigramas = Counter(tokens)
+
+        # Calcular las probabilidades condicionales para bigramas
+        datos_bigramas = [
+            (termino1, termino2, freq, conteo_unigramas[termino1], freq / conteo_unigramas[termino1])
+            for (termino1, termino2), freq in conteo_bigramas.items()
+        ]
+
+        # Ordenar los datos por frecuencia en orden descendente
+        datos_bigramas.sort(key=lambda x: x[2], reverse=True)
+
+        # Escribir los datos de bigramas en un archivo CSV
+        with open(ruta_salida, 'w', newline='', encoding='utf-8') as csvfile:
+            escritor = csv.writer(csvfile)
+            escritor.writerow(['Term 1', 'Term 2', 'frequency of bigram', 'frequency of context (Term 1)', ' conditional probability of bigram'])
+            escritor.writerows(datos_bigramas)
+
+        print(f"Archivo de bigramas generado: {ruta_salida}")
+
+    def crear_trigramas(self, tokens, nombre_archivo_salida):
+        """
+        Función que genera un archivo CSV con trigramas, sus frecuencias y probabilidades condicionales.
+        """
+        ruta_salida = os.path.join(os.getcwd(), nombre_archivo_salida)
+
+        # Extraer trigramas
+        trigramas = list(zip(tokens, islice(tokens, 1, None), islice(tokens, 2, None)))
+
+        # Contar frecuencias de trigramas y bigramas (contexto del trigramas)
+        conteo_trigramas = Counter(trigramas)
+        conteo_bigramas = Counter(list(zip(tokens, islice(tokens, 1, None))))
+
+        # Calcular las probabilidades condicionales para trigramas
+        datos_trigramas = [
+            (termino1, termino2, termino3, freq, conteo_bigramas[(termino1, termino2)], freq / conteo_bigramas[(termino1, termino2)])
+            for (termino1, termino2, termino3), freq in conteo_trigramas.items()
+        ]
+
+        # Ordenar los datos por frecuencia en orden descendente
+        datos_trigramas.sort(key=lambda x: x[3], reverse=True)
+
+        # Escribir los datos de trigramas en un archivo CSV
+        with open(ruta_salida, 'w', newline='', encoding='utf-8') as csvfile:
+            escritor = csv.writer(csvfile)
+            escritor.writerow(['Term 1', 'Term 2', 'Term 3', 'frequency of trigram', 'frequency of context (bigram Term1 + Term2)', 'probability of trigram'])
+            escritor.writerows(datos_trigramas)
+
+        print(f"Archivo de trigramas generado: {ruta_salida}")
 
     def cargar_modelo(self):
         print("Cargar modelo de lenguaje...")
