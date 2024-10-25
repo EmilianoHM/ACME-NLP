@@ -6,6 +6,7 @@ from collections import Counter
 from itertools import islice
 import csv
 import random
+from collections import defaultdict
 
 ngrams_global = []
 
@@ -91,6 +92,8 @@ class AplicacionModelosLenguaje:
         self.root.title("Aplicación de Modelos de Lenguaje")
 
         self.tokens = []
+        self.modelos_lenguaje = {} 
+        self.tipo_modelo = {}  
 
         # Crear un notebook (pestañas)
         self.notebook = ttk.Notebook(self.root)
@@ -237,19 +240,12 @@ class AplicacionModelosLenguaje:
         self.entry_busqueda4 = tk.Entry(marco_probabilidad, width=30)
         self.entry_busqueda4.grid(row=0, column=1, padx=10, pady=5)
 
-        # Botones "Browse" y "Add model"
-        boton_browse = tk.Button(marco_probabilidad, text="Browse", command=self.cargar_modelo)
+        # Botones "Browse"
+        boton_browse = tk.Button(marco_probabilidad, text="Browse", command=self.cargar_modelo_probabilidad)
         boton_browse.grid(row=0, column=2, padx=10, pady=5)
-
-        boton_add_model = tk.Button(marco_probabilidad, text="Add model", command=self.agregar_modelo)
-        boton_add_model.grid(row=0, column=3, padx=10, pady=5)
 
         # Lista de modelos
         self.lista_modelos = tk.Listbox(marco_probabilidad, height=5)
-        self.lista_modelos.insert(1, "Model 1")
-        self.lista_modelos.insert(2, "Model 2")
-        self.lista_modelos.insert(3, "...")
-        self.lista_modelos.insert(4, "Model n")
         self.lista_modelos.grid(row=1, column=0, columnspan=2, padx=10, pady=5, sticky="w")
 
         # Etiqueta "Test sentence" en negritas
@@ -272,10 +268,6 @@ class AplicacionModelosLenguaje:
         self.tabla_resultados = ttk.Treeview(marco_probabilidad, columns=("Modelo", "Probabilidad conjunta"), show="headings")
         self.tabla_resultados.heading("Modelo", text="Language model")
         self.tabla_resultados.heading("Probabilidad conjunta", text="Joint probability")
-        self.tabla_resultados.insert("", "end", values=("Model 1", "0.05"))
-        self.tabla_resultados.insert("", "end", values=("Model 2", "0.04"))
-        self.tabla_resultados.insert("", "end", values=("...", "0.001"))
-        self.tabla_resultados.insert("", "end", values=("Model n", "0.0001"))
         self.tabla_resultados.grid(row=4, column=0, columnspan=3, padx=10, pady=5)
 
     def cargar_corpus(self):
@@ -388,22 +380,90 @@ class AplicacionModelosLenguaje:
         
         self.text_generated.delete(1.0, tk.END)
         self.text_generated.insert(tk.END, sentence)
-
         
-
-
     def predecir_palabra(self):
         palabra_inicial = self.entry_word.get()
         print(f"Prediciendo palabra siguiente para: {palabra_inicial}")
 
-    def agregar_palabra(self):
-        print("Palabra añadida")
+    def cargar_modelo_probabilidad(self):
+        archivo = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
+        if archivo:
+            nombre_archivo = os.path.basename(archivo)
+            self.entry_busqueda4.delete(0, tk.END)
+            self.entry_busqueda4.insert(0, nombre_archivo)
+            print(f"Archivo cargado: {nombre_archivo}")
 
-    def agregar_modelo(self):
-        print("Modelo agregado")
+            # Cargar el modelo desde el archivo CSV
+            self.leer_modelo_csv(archivo, nombre_archivo)
+
+    def leer_modelo_csv(self, archivo, nombre_archivo):
+        """
+        Función que carga un modelo de lenguaje desde un archivo CSV y lo almacena en el diccionario de modelos.
+        Detecta si el modelo es de bigramas o trigramas en función de las columnas.
+        """
+        modelo = defaultdict(float)
+        with open(archivo, 'r', encoding='utf-8') as csvfile:
+            lector_csv = csv.reader(csvfile)
+            encabezados = next(lector_csv)  # Leer los encabezados para determinar el tipo de modelo
+
+            if len(encabezados) == 5:  # Es un modelo de bigramas
+                self.tipo_modelo[nombre_archivo] = "bigram"
+                for fila in lector_csv:
+                    termino1, termino2, _, _, probabilidad_condicional = fila
+                    modelo[(termino1, termino2)] = float(probabilidad_condicional)
+            elif len(encabezados) == 6:  # Es un modelo de trigramas
+                self.tipo_modelo[nombre_archivo] = "trigram"
+                for fila in lector_csv:
+                    termino1, termino2, termino3, _, _, probabilidad_condicional = fila
+                    modelo[(termino1, termino2, termino3)] = float(probabilidad_condicional)
+
+        self.modelos_lenguaje[nombre_archivo] = modelo
+        self.lista_modelos.insert(tk.END, nombre_archivo)
+        print(f"Modelo {nombre_archivo} agregado con éxito.")
 
     def calcular_probabilidad(self):
-        print("Calculando probabilidad conjunta...")
+        oracion = self.entry_sentence.get().split()
+        if not oracion:
+            print("Por favor, ingresa una oración.")
+            return
+
+        # Calcular la probabilidad conjunta para cada modelo de lenguaje
+        self.tabla_resultados.delete(*self.tabla_resultados.get_children())
+        for nombre_modelo, modelo in self.modelos_lenguaje.items():
+            probabilidad = self.calcular_probabilidad_conjunta(oracion, modelo, self.tipo_modelo[nombre_modelo])
+            self.tabla_resultados.insert("", "end", values=(nombre_modelo, f"{probabilidad:.6f}"))
+
+    def calcular_probabilidad_conjunta(self, oracion, modelo, tipo_modelo):
+        """
+        Calcula la probabilidad conjunta de una oración multiplicando las probabilidades condicionales.
+        El cálculo se adapta según sea bigrama o trigrama.
+        """
+        probabilidad_conjunta = 1.0
+
+        if tipo_modelo == "bigram":
+            # Para bigramas
+            vocabulario = set()
+            for (termino1, termino2) in modelo.keys():
+                vocabulario.update([termino1, termino2])
+            V = len(vocabulario)
+            for w1, w2 in zip(oracion, oracion[1:]):
+                probabilidad_condicional = modelo.get((w1, w2), 1 / (V + 1))  # Suavizado de Laplace
+                probabilidad_conjunta *= probabilidad_condicional
+
+        elif tipo_modelo == "trigram":
+            # Para trigramas
+            vocabulario = set()
+            for (termino1, termino2, termino3) in modelo.keys():
+                vocabulario.update([termino1, termino2, termino3])
+            V = len(vocabulario)
+            for w1, w2, w3 in zip(oracion, oracion[1:], oracion[2:]):
+                probabilidad_condicional = modelo.get((w1, w2, w3), 1 / (V + 1))  # Suavizado de Laplace
+                probabilidad_conjunta *= probabilidad_condicional
+
+        return probabilidad_conjunta
+    
+    def agregar_palabra(self):
+        print("Palabra añadida")
 
 # Ejecutar la aplicación
 root = tk.Tk()
