@@ -7,6 +7,7 @@ from itertools import islice
 import csv
 import random
 from collections import defaultdict
+from tkinter import messagebox
 
 ngrams_global = []
 
@@ -165,7 +166,7 @@ class AplicacionModelosLenguaje:
         self.entry_busqueda2.grid(row=0, column=1, padx=10, pady=10)
 
         # Botón "Browse"
-        boton_browse = tk.Button(marco_prediccion, text="Browse", command=self.cargar_modelo)
+        boton_browse = tk.Button(marco_prediccion, text="Browse", command=self.cargar_modelos)
         boton_browse.grid(row=0, column=2, padx=10, pady=5)
 
         # Etiqueta "Write a word (or two words to start a sentence)"
@@ -193,10 +194,17 @@ class AplicacionModelosLenguaje:
         # Etiqueta "Generated text"
         label_generated_text = tk.Label(marco_prediccion, text="Generated text", fg="black", font=("Arial", 10, "bold"))
         label_generated_text.grid(row=4, column=0, padx=10, pady=5, sticky="w")
-
-        # Cuadro de texto para mostrar el texto generado
-        self.text_generated = tk.Text(marco_prediccion, height=10, width=60)
-        self.text_generated.grid(row=5, column=0, columnspan=3, padx=10, pady=5)
+        # Label para mostrar el texto generado
+        self.label_generated_text = tk.Label(
+            marco_prediccion, 
+            text="", 
+            fg="black", 
+            bg="white",  # Establece el fondo en blanco
+            font=("Arial", 10), 
+            wraplength=400, 
+            justify="left"      
+        )
+        self.label_generated_text.grid(row=5, column=0, columnspan=3, padx=10, pady=5)
 
     # Función para mostrar la interfaz de Generación de Texto
     def abrir_generacion_texto(self, parent):
@@ -371,6 +379,19 @@ class AplicacionModelosLenguaje:
                 reader = csv.reader(f)
                 for row in reader:
                     ngrams_global.append(row)
+    
+    def cargar_modelos(self):
+        global ngrams_global
+        archivo = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
+        if archivo:
+            nombre_archivo = os.path.basename(archivo)
+            self.entry_busqueda2.delete(0, tk.END)
+            self.entry_busqueda2.insert(0, nombre_archivo)
+            print(f"Modelo de lenguaje cargado: {nombre_archivo}")
+            with open(archivo, 'r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    ngrams_global.append(row)
 
     def generar_oracion(self):
         ngram = 2 
@@ -382,8 +403,55 @@ class AplicacionModelosLenguaje:
         self.text_generated.insert(tk.END, sentence)
         
     def predecir_palabra(self):
-        palabra_inicial = self.entry_word.get()
-        print(f"Prediciendo palabra siguiente para: {palabra_inicial}")
+        """Predice las siguientes palabras más probables cuando se presiona 'Next word'"""
+        global ngrams_global
+
+        # Obtener el texto inicial
+        entrada = self.entry_word.get().strip()
+        
+        if not entrada:
+            messagebox.showerror("Error", "Por favor ingrese una o dos palabras para comenzar")
+            return
+        
+        # Determinar si estamos trabajando con bigramas o trigramas
+        es_bigrama = len(ngrams_global[0]) == 5
+        palabras = entrada.split()
+        predicciones = []
+        
+        # Obtener las predicciones según el tipo de n-grama
+        if es_bigrama:
+            contexto = palabras[-1]
+            for fila in ngrams_global[1:]:  # Saltamos la cabecera
+                if fila[0] == contexto:
+                    predicciones.append((fila[1], float(fila[4])))
+        else:  # trigrama
+            if len(palabras) < 2:
+                messagebox.showwarning("Advertencia", "Para trigramas, ingrese al menos dos palabras")
+                return
+            
+            contexto1, contexto2 = palabras[-2], palabras[-1]
+            for fila in ngrams_global[1:]:
+                if fila[0] == contexto1 and fila[1] == contexto2:
+                    predicciones.append((fila[2], float(fila[5])))
+        
+        # Ordenar por probabilidad y obtener las 3 más probables
+        predicciones.sort(key=lambda x: x[1], reverse=True)
+        
+        # Preparar las opciones para el combobox
+        opciones = ["", "", ""]  # Inicializar con strings vacíos
+        for i, (palabra, _) in enumerate(predicciones[:3]):
+            if palabra == '</s>':
+                opciones[i] = '.'
+            else:
+                opciones[i] = palabra
+        
+        # Siempre añadir el punto como opción
+        opciones.append('.')
+        
+        # Actualizar el combobox
+        self.combo_opciones['values'] = opciones
+        if opciones:
+            self.combo_opciones.current(0)
 
     def cargar_modelo_probabilidad(self):
         archivo = filedialog.askopenfilename(filetypes=[("Archivos CSV", "*.csv")])
@@ -463,8 +531,41 @@ class AplicacionModelosLenguaje:
         return probabilidad_conjunta
     
     def agregar_palabra(self):
-        print("Palabra añadida")
-
+        """Agrega la palabra seleccionada al texto sin borrar el contenido actual"""
+        palabra_seleccionada = self.combo_opciones.get()
+        if not palabra_seleccionada:
+            return
+        
+        # Obtener el texto actual del label
+        texto_actual = self.label_generated_text.cget("text").strip()
+        
+        if palabra_seleccionada == '.':
+            # Si se selecciona el punto, terminar la oración
+            nuevo_texto = f"{texto_actual}.".strip()
+            self.label_generated_text.config(text=nuevo_texto)
+            self.entry_word.delete(0, tk.END)
+            self.combo_opciones.set('')  # Limpiar el combobox
+            messagebox.showinfo("Información", "Oración finalizada. Puede comenzar una nueva.")
+        else:
+            # Concatenar la palabra seleccionada al texto actual
+            nuevo_texto = f"{texto_actual} {palabra_seleccionada}".strip() if texto_actual else palabra_seleccionada
+            self.label_generated_text.config(text=nuevo_texto)
+            
+            # Actualizar el contexto para la siguiente predicción
+            palabras = nuevo_texto.split()
+            es_bigrama = len(ngrams_global[0]) == 5
+            
+            # Actualizar entry_word con el nuevo contexto
+            if es_bigrama:
+                self.entry_word.delete(0, tk.END)
+                self.entry_word.insert(0, palabra_seleccionada)
+            else:
+                if len(palabras) >= 2:
+                    self.entry_word.delete(0, tk.END)
+                    self.entry_word.insert(0, f"{palabras[-2]} {palabra_seleccionada}")
+                else:
+                    self.entry_word.delete(0, tk.END)
+                    self.entry_word.insert(0, palabra_seleccionada)
 # Ejecutar la aplicación
 root = tk.Tk()
 app = AplicacionModelosLenguaje(root)
