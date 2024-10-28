@@ -397,11 +397,9 @@ class AplicacionModelosLenguaje:
             self.leer_modelo_csv(archivo, nombre_archivo)
 
     def leer_modelo_csv(self, archivo, nombre_archivo):
-        """
-        Función que carga un modelo de lenguaje desde un archivo CSV y lo almacena en el diccionario de modelos.
-        Detecta si el modelo es de bigramas o trigramas en función de las columnas.
-        """
         modelo = defaultdict(float)
+        frecuencia_terminos = defaultdict(int)  # Diccionario para frecuencias individuales y de bigramas/trigramas
+
         with open(archivo, 'r', encoding='utf-8') as csvfile:
             lector_csv = csv.reader(csvfile)
             encabezados = next(lector_csv)  # Leer los encabezados para determinar el tipo de modelo
@@ -409,15 +407,18 @@ class AplicacionModelosLenguaje:
             if len(encabezados) == 5:  # Es un modelo de bigramas
                 self.tipo_modelo[nombre_archivo] = "bigram"
                 for fila in lector_csv:
-                    termino1, termino2, _, _, probabilidad_condicional = fila
-                    modelo[(termino1, termino2)] = float(probabilidad_condicional)
+                    termino1, termino2, freq_bigrama, freq_termino1, _ = fila
+                    modelo[(termino1, termino2)] = int(freq_bigrama)  # Frecuencia del bigrama
+                    frecuencia_terminos[termino1] = int(freq_termino1)  # Frecuencia del término individual
+
             elif len(encabezados) == 6:  # Es un modelo de trigramas
                 self.tipo_modelo[nombre_archivo] = "trigram"
                 for fila in lector_csv:
-                    termino1, termino2, termino3, _, _, probabilidad_condicional = fila
-                    modelo[(termino1, termino2, termino3)] = float(probabilidad_condicional)
+                    termino1, termino2, termino3, freq_trigrama, freq_bigrama, _ = fila
+                    modelo[(termino1, termino2, termino3)] = int(freq_trigrama)  # Frecuencia del trigrama
+                    frecuencia_terminos[(termino1, termino2)] = int(freq_bigrama)  # Frecuencia del bigrama
 
-        self.modelos_lenguaje[nombre_archivo] = modelo
+        self.modelos_lenguaje[nombre_archivo] = (modelo, frecuencia_terminos)
         self.lista_modelos.insert(tk.END, nombre_archivo)
         print(f"Modelo {nombre_archivo} agregado con éxito.")
 
@@ -428,37 +429,74 @@ class AplicacionModelosLenguaje:
             return
 
         # Calcular la probabilidad conjunta para cada modelo de lenguaje
-        self.tabla_resultados.delete(*self.tabla_resultados.get_children())
+        resultados = []
         for nombre_modelo, modelo in self.modelos_lenguaje.items():
             probabilidad = self.calcular_probabilidad_conjunta(oracion, modelo, self.tipo_modelo[nombre_modelo])
+            resultados.append((nombre_modelo, probabilidad))
+        
+        # Ordenar los resultados en orden descendente de probabilidad conjunta
+        resultados_ordenados = sorted(resultados, key=lambda x: x[1], reverse=True)
+        
+        # Limpiar la tabla y mostrar los resultados ordenados
+        self.tabla_resultados.delete(*self.tabla_resultados.get_children())
+        for nombre_modelo, probabilidad in resultados_ordenados:
             self.tabla_resultados.insert("", "end", values=(nombre_modelo, f"{probabilidad:.6f}"))
 
-    def calcular_probabilidad_conjunta(self, oracion, modelo, tipo_modelo):
-        """
-        Calcula la probabilidad conjunta de una oración multiplicando las probabilidades condicionales.
-        El cálculo se adapta según sea bigrama o trigrama.
-        """
+    def calcular_probabilidad_conjunta(self, oracion, modelo_data, tipo_modelo):
+        modelo, frecuencia_terminos = modelo_data
         probabilidad_conjunta = 1.0
 
+        # Construir vocabulario para el suavizado de Laplace
+        vocabulario = set()
         if tipo_modelo == "bigram":
-            # Para bigramas
-            vocabulario = set()
             for (termino1, termino2) in modelo.keys():
                 vocabulario.update([termino1, termino2])
-            V = len(vocabulario)
-            for w1, w2 in zip(oracion, oracion[1:]):
-                probabilidad_condicional = modelo.get((w1, w2), 1 / (V + 1))  # Suavizado de Laplace
-                probabilidad_conjunta *= probabilidad_condicional
-
         elif tipo_modelo == "trigram":
-            # Para trigramas
-            vocabulario = set()
             for (termino1, termino2, termino3) in modelo.keys():
                 vocabulario.update([termino1, termino2, termino3])
-            V = len(vocabulario)
-            for w1, w2, w3 in zip(oracion, oracion[1:], oracion[2:]):
-                probabilidad_condicional = modelo.get((w1, w2, w3), 1 / (V + 1))  # Suavizado de Laplace
+        V = len(vocabulario)
+
+        # Cálculo de probabilidad conjunta
+        if len(oracion) == 1:  # Unigrama
+            palabra = oracion[0]
+            freq_palabra = frecuencia_terminos.get(palabra, 0)
+            total_frecuencias = sum(frecuencia_terminos.values())
+            
+            # Usar probabilidad directa si existe, de lo contrario aplicar suavizado de Laplace
+            probabilidad_conjunta = (freq_palabra / total_frecuencias) if freq_palabra > 0 else (1 / (total_frecuencias + V))
+            print(freq_palabra, total_frecuencias, probabilidad_conjunta, V)
+
+        elif tipo_modelo == "bigram" or (tipo_modelo == "trigram" and len(oracion) == 2):  # Bigramas
+            for w1, w2 in zip(oracion, oracion[1:]):
+                if tipo_modelo == "trigram":
+                    # En el caso de trigramas, accedemos a la frecuencia del contexto como bigrama en el modelo trigramal
+                    freq_bigrama = frecuencia_terminos.get((w1, w2), 0)  # Frecuencia del contexto bigrama
+                else:
+                    # En el caso de bigramas, accedemos directamente al bigrama en el modelo
+                    freq_bigrama = modelo.get((w1, w2), 0)
+                    
+                freq_termino1 = frecuencia_terminos.get(w1, 0)
+
+                # Usar probabilidad directa si existe, de lo contrario aplicar suavizado de Laplace
+                if freq_bigrama > 0 and freq_termino1 > 0:
+                    probabilidad_condicional = freq_bigrama / freq_termino1
+                else:
+                    probabilidad_condicional = 1 / (freq_termino1 + V)
                 probabilidad_conjunta *= probabilidad_condicional
+                print(freq_bigrama, freq_termino1, probabilidad_condicional, V)
+
+        elif tipo_modelo == "trigram" and len(oracion) >= 3:  # Trigramas
+            for w1, w2, w3 in zip(oracion, oracion[1:], oracion[2:]):
+                freq_trigrama = modelo.get((w1, w2, w3), 0)
+                freq_bigrama = frecuencia_terminos.get((w1, w2), 0)
+
+                # Usar probabilidad directa si existe, de lo contrario aplicar suavizado de Laplace
+                if freq_trigrama > 0 and freq_bigrama > 0:
+                    probabilidad_condicional = freq_trigrama / freq_bigrama
+                else:
+                    probabilidad_condicional = 1 / (freq_bigrama + V)
+                probabilidad_conjunta *= probabilidad_condicional
+                print(freq_trigrama, freq_bigrama, probabilidad_condicional, V)
 
         return probabilidad_conjunta
     
