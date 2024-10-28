@@ -423,7 +423,7 @@ class AplicacionModelosLenguaje:
         print(f"Modelo {nombre_archivo} agregado con éxito.")
 
     def calcular_probabilidad(self):
-        oracion = self.entry_sentence.get().split()
+        oracion = ["<s>"] + self.entry_sentence.get().split() + ["</s>"]
         if not oracion:
             print("Por favor, ingresa una oración.")
             return
@@ -440,7 +440,7 @@ class AplicacionModelosLenguaje:
         # Limpiar la tabla y mostrar los resultados ordenados
         self.tabla_resultados.delete(*self.tabla_resultados.get_children())
         for nombre_modelo, probabilidad in resultados_ordenados:
-            self.tabla_resultados.insert("", "end", values=(nombre_modelo, f"{probabilidad:.6f}"))
+            self.tabla_resultados.insert("", "end", values=(nombre_modelo, f"{probabilidad:.18f}"))
 
     def calcular_probabilidad_conjunta(self, oracion, modelo_data, tipo_modelo):
         modelo, frecuencia_terminos = modelo_data
@@ -464,7 +464,7 @@ class AplicacionModelosLenguaje:
             
             # Usar probabilidad directa si existe, de lo contrario aplicar suavizado de Laplace
             probabilidad_conjunta = (freq_palabra / total_frecuencias) if freq_palabra > 0 else (1 / (total_frecuencias + V))
-            print(freq_palabra, total_frecuencias, probabilidad_conjunta, V)
+            print(w1, w2, freq_palabra, total_frecuencias, probabilidad_conjunta, V)
 
         elif tipo_modelo == "bigram" or (tipo_modelo == "trigram" and len(oracion) == 2):  # Bigramas
             for w1, w2 in zip(oracion, oracion[1:]):
@@ -483,7 +483,7 @@ class AplicacionModelosLenguaje:
                 else:
                     probabilidad_condicional = 1 / (freq_termino1 + V)
                 probabilidad_conjunta *= probabilidad_condicional
-                print(freq_bigrama, freq_termino1, probabilidad_condicional, V)
+                print(w1, w2, freq_bigrama, freq_termino1, probabilidad_condicional, V)
 
         elif tipo_modelo == "trigram" and len(oracion) >= 3:  # Trigramas
             for w1, w2, w3 in zip(oracion, oracion[1:], oracion[2:]):
@@ -496,7 +496,7 @@ class AplicacionModelosLenguaje:
                 else:
                     probabilidad_condicional = 1 / (freq_bigrama + V)
                 probabilidad_conjunta *= probabilidad_condicional
-                print(freq_trigrama, freq_bigrama, probabilidad_condicional, V)
+                print(w1, w2, w3, freq_trigrama, freq_bigrama, probabilidad_condicional, V)
 
         return probabilidad_conjunta
     
