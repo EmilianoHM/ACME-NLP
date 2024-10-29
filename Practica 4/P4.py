@@ -569,16 +569,22 @@ class AplicacionModelosLenguaje:
         return probabilidad_conjunta
     
     def agregar_palabra(self):
-        """Agrega la palabra seleccionada al texto sin borrar el contenido actual"""
+        """Agrega la palabra seleccionada al texto sin borrar el contenido actual, incluyendo el mensaje inicial del usuario"""
+    
+    # Extraer el mensaje inicial ingresado por el usuario (si no se ha extraído ya)
+        if not self.label_generated_text.cget("text"):  # Si el label está vacío
+            mensaje_inicial = self.entry_word.get().strip()
+            self.label_generated_text.config(text=mensaje_inicial)
+
         palabra_seleccionada = self.combo_opciones.get()
         if not palabra_seleccionada:
-            return
-        
-        # Obtener el texto actual del label
+            return  # No se hace nada si no hay una palabra seleccionada
+    
+    # Obtener el texto actual del label (mensaje inicial + palabras seleccionadas)
         texto_actual = self.label_generated_text.cget("text").strip()
-        
+    
         if palabra_seleccionada == '.':
-            # Si se selecciona el punto, terminar la oración
+        # Si se selecciona el punto, terminar la oración
             nuevo_texto = f"{texto_actual}.".strip()
             self.label_generated_text.config(text=nuevo_texto)
             self.entry_word.delete(0, tk.END)
@@ -586,7 +592,7 @@ class AplicacionModelosLenguaje:
             messagebox.showinfo("Información", "Oración finalizada. Puede comenzar una nueva.")
         else:
             # Concatenar la palabra seleccionada al texto actual
-            nuevo_texto = f"{texto_actual} {palabra_seleccionada}".strip() if texto_actual else palabra_seleccionada
+            nuevo_texto = f"{texto_actual} {palabra_seleccionada}".strip()
             self.label_generated_text.config(text=nuevo_texto)
             
             # Actualizar el contexto para la siguiente predicción
@@ -604,6 +610,7 @@ class AplicacionModelosLenguaje:
                 else:
                     self.entry_word.delete(0, tk.END)
                     self.entry_word.insert(0, palabra_seleccionada)
+
 # Ejecutar la aplicación
 root = tk.Tk()
 app = AplicacionModelosLenguaje(root)
