@@ -16,8 +16,9 @@ from collections import Counter
 import numpy as np
 
 # Descargar recursos necesarios para procesamiento de texto
-nltk.download('punkt')
-nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('stopwords')
+# nltk.download('punkt_tab')
 
 # Cargar el corpus
 print("Cargando el corpus...")
@@ -85,54 +86,76 @@ X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
 
 # Word Embeddings
-print("Entrenando modelo de Word2Vec para embeddings...")
-tokenized_train = [text.split() for text in X_train]
-word2vec_model = Word2Vec(sentences=tokenized_train, vector_size=100, window=5, min_count=1, workers=4)
-def text_to_embeddings(text, model, vector_size):
-    tokens = text.split()
-    embeddings = [model.wv[token] for token in tokens if token in model.wv]
-    if embeddings:
-        return np.mean(embeddings, axis=0)
-    else:
-        return np.zeros(vector_size)
+#Dijo el profe que a ese no le hicieramos caso, (podiamos o no podiamos ponerlo)
+# print("Entrenando modelo de Word2Vec para embeddings...")
+# tokenized_train = [text.split() for text in X_train]
+# word2vec_model = Word2Vec(sentences=tokenized_train, vector_size=100, window=5, min_count=1, workers=4)
+# def text_to_embeddings(text, model, vector_size):
+#     tokens = text.split()
+#     embeddings = [model.wv[token] for token in tokens if token in model.wv]
+#     if embeddings:
+#         return np.mean(embeddings, axis=0)
+#     else:
+#         return np.zeros(vector_size)
 
-X_train_embeddings = np.array([text_to_embeddings(text, word2vec_model, 100) for text in X_train])
-X_test_embeddings = np.array([text_to_embeddings(text, word2vec_model, 100) for text in X_test])
+# X_train_embeddings = np.array([text_to_embeddings(text, word2vec_model, 100) for text in X_train])
+# X_test_embeddings = np.array([text_to_embeddings(text, word2vec_model, 100) for text in X_test])
 
 # Manejo de desbalanceo
+x_tests = [X_test_binarized, X_test_frequency, X_test_tfidf]
+
+
 print("Aplicando SMOTE para balancear los datos de entrenamiento...")
-smote = SMOTE(random_state=0)
-X_train_tfidf_balanced, y_train_balanced = smote.fit_resample(X_train_tfidf, y_train)
-print(f"Distribución de clases después de SMOTE: {Counter(y_train_balanced)}")
+smote = SMOTE(random_state=0, sampling_strategy='minority', k_neighbors=5)
+X_train_binarized_balanced, y_train_binarized_balanced = smote.fit_resample(X_train_binarized, y_train)
+X_train_frequency_balanced, y_train_frequency_balanced = smote.fit_resample(X_train_frequency, y_train)
+X_train_tfidf_balanced, y_train_tfidf_balanced = smote.fit_resample(X_train_tfidf, y_train)
+# print(f"Distribución de clases después de SMOTE: {Counter(y_train_balanced)}")
+
+X_trains = [X_train_binarized_balanced, X_train_frequency_balanced, X_train_tfidf_balanced]
+y_trains = [y_train_binarized_balanced, y_train_frequency_balanced, y_train_tfidf_balanced]
 
 # Modelos a evaluar
 models = {
     "Naive Bayes": MultinomialNB(),
-    "Logistic Regression": LogisticRegression(max_iter=1000, random_state=0),
-    "MLP": MLPClassifier(hidden_layer_sizes=(50, 50), max_iter=500, random_state=0)
+    "Logistic Regression": LogisticRegression(max_iter=1000, random_state=0, multi_class='multinomial'),
+    "MLP": MLPClassifier(hidden_layer_sizes=(50, 50), max_iter=100, random_state=0, early_stopping=True)
 }
 
 # Entrenamiento y validación
 print("Entrenando modelos...")
 best_model = None
 best_f1 = 0
+representations = ['Binarized', 'Frequency', 'TF-IDF']
+
+best_representation = None
+x = None
+y = None
 
 for model_name, model in models.items():
     print(f"Entrenando {model_name}...")
-    scores = cross_validate(model, X_train_tfidf_balanced, y_train_balanced, cv=5, scoring='f1_macro', return_train_score=False)
-    avg_f1 = scores['test_score'].mean()
-    print(f"F1 Macro promedio para {model_name}: {avg_f1:.4f}")
-    if avg_f1 > best_f1:
-        best_f1 = avg_f1
-        best_model = model
+    for index, x_train in enumerate(X_trains):             
+        y_train = y_trains[index]
+        print(f"Entrenando {model_name} con {representations[index]}...")
+        scores = cross_validate(model, x_train, y_train, cv=5, scoring='f1_macro', return_train_score=False)
+        avg_f1 = scores['test_score'].mean()
+        print(f"F1 Macro promedio para {model_name}: {avg_f1:.4f}")
+        if avg_f1 > best_f1:
+            best_f1 = avg_f1
+            best_model = model
+            best_representation = representations[index]
+            x = x_train
+            y = y_train
+            x_test = x_tests[index]
 
 # Entrenar el mejor modelo
-print(f"El mejor modelo es {best_model.__class__.__name__} con F1 Macro promedio de {best_f1:.4f}. Entrenándolo con todo el conjunto de entrenamiento balanceado...")
-best_model.fit(X_train_tfidf_balanced, y_train_balanced)
+print(f"El mejor modelo es {best_model.__class__.__name__} con F1 Macro promedio de {best_f1:.4f} usando {best_representation}.")
+print("Entrenando el mejor modelo...")
+best_model.fit(x, y)
 
 # Evaluación en el conjunto de prueba
 print("Evaluando el modelo en el conjunto de prueba...")
-y_pred = best_model.predict(X_test_tfidf)
+y_pred = best_model.predict(x_test)
 f1_test = f1_score(y_test, y_pred, average='macro')
 print(f"F1 Macro en el conjunto de prueba: {f1_test:.4f}")
 print("Reporte de clasificación:")
