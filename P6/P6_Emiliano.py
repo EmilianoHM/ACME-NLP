@@ -13,13 +13,11 @@ from sklearn.metrics import f1_score, classification_report
 from imblearn.over_sampling import SMOTE
 from gensim.models import Word2Vec
 from collections import Counter
-from imblearn.under_sampling import RandomUnderSampler
 import numpy as np
-from sklearn.model_selection import KFold
 
 # Descargar recursos necesarios para procesamiento de texto
-# nltk.download('punkt')
-# nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('stopwords')
 
 # Cargar el corpus
 print("Cargando el corpus...")
@@ -86,8 +84,6 @@ tfidf_vectorizer = TfidfVectorizer(max_features=1000)
 X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_test_tfidf = tfidf_vectorizer.transform(X_test)
 
-y_train = y_train.reset_index(drop=True)
-
 # Word Embeddings
 print("Entrenando modelo de Word2Vec para embeddings...")
 tokenized_train = [text.split() for text in X_train]
@@ -105,11 +101,9 @@ X_test_embeddings = np.array([text_to_embeddings(text, word2vec_model, 100) for 
 
 # Manejo de desbalanceo
 print("Aplicando SMOTE para balancear los datos de entrenamiento...")
-
-kfold = KFold(n_splits=5, shuffle=True, random_state=0)
-undersampler = RandomUnderSampler(sampling_strategy='majority')
-# X_train_tfidf_balanced, y_train_balanced = smote.fit_resample(X_train_tfidf, y_train)
-
+smote = SMOTE(random_state=0)
+X_train_tfidf_balanced, y_train_balanced = smote.fit_resample(X_train_tfidf, y_train)
+print(f"Distribución de clases después de SMOTE: {Counter(y_train_balanced)}")
 
 # Modelos a evaluar
 models = {
@@ -125,19 +119,8 @@ best_f1 = 0
 
 for model_name, model in models.items():
     print(f"Entrenando {model_name}...")
-    scores = []
-    for train_index, test_index in kfold.split(X_train_tfidf):
-        X_train_fold, X_val_fold = X_train_tfidf[train_index], X_train_tfidf[test_index]
-        y_train_fold, y_val_fold = y_train[train_index], y_train[test_index]        
-        X_train_fold_balanced, y_train_fold_balanced = undersampler.fit_resample(X_train_fold, y_train_fold)
-        print("Numero de muestras por clase en conjunto de entrenamiento balanceado: ", Counter(y_train_fold_balanced))
-        model.fit(X_train_fold_balanced, y_train_fold_balanced)
-        y_pred = model.predict(X_val_fold)
-        f1_fold = f1_score(y_val_fold, y_pred, average='macro')
-        print(f"F1 Macro en fold: {f1_fold:.4f}")
-        scores.append(f1_fold)
-
-    avg_f1 = np.mean(scores)
+    scores = cross_validate(model, X_train_tfidf_balanced, y_train_balanced, cv=5, scoring='f1_macro', return_train_score=False)
+    avg_f1 = scores['test_score'].mean()
     print(f"F1 Macro promedio para {model_name}: {avg_f1:.4f}")
     if avg_f1 > best_f1:
         best_f1 = avg_f1
@@ -145,8 +128,7 @@ for model_name, model in models.items():
 
 # Entrenar el mejor modelo
 print(f"El mejor modelo es {best_model.__class__.__name__} con F1 Macro promedio de {best_f1:.4f}. Entrenándolo con todo el conjunto de entrenamiento balanceado...")
-X_train_balanced, y_train_balanced = undersampler.fit_resample(X_train_tfidf, y_train)
-best_model.fit(X_train_balanced, y_train_balanced)
+best_model.fit(X_train_tfidf_balanced, y_train_balanced)
 
 # Evaluación en el conjunto de prueba
 print("Evaluando el modelo en el conjunto de prueba...")
