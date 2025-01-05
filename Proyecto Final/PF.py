@@ -34,19 +34,35 @@ def train_baseline(file):
     X = vectorizer.fit_transform(df['Processed_News'])
     y = df['Type']
 
-    # División de datos
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # División del conjunto de datos
+    X_train, X_temp, y_train, y_temp = train_test_split(
+        X, y, test_size=0.2, random_state=42, stratify=y  # 80% entrenamiento, 20% restante
+    )
+
+    X_val, X_test, y_val, y_test = train_test_split(
+        X_temp, y_temp, test_size=0.5, random_state=42, stratify=y_temp  # 10% validación, 10% pruebas
+    )
+
+    
 
     # Entrenamiento de Regresión Logística
-    model = LogisticRegression(C=5.1,max_iter=100, n_jobs=-1, penalty='l2', solver='saga')
+    model = LogisticRegression(C=5.1, max_iter=100, n_jobs=-1, penalty='l2', solver='saga')
     model.fit(X_train, y_train)
 
-    # Evaluación
-    y_pred = model.predict(X_test)
-    acc = accuracy_score(y_test, y_pred)
-    report = classification_report(y_test, y_pred, output_dict=True)
+    # Evaluación en validación y pruebas
+    y_val_pred = model.predict(X_val)
+    y_test_pred = model.predict(X_test)
 
-    return model, vectorizer, acc, report
+    val_acc = accuracy_score(y_val, y_val_pred)
+    test_acc = accuracy_score(y_test, y_test_pred)
+
+    report = classification_report(y_test, y_test_pred, output_dict=True)
+
+    # Mostrar resultados
+    print(f"Accuracy en Validación: {val_acc:.2f}")
+    print(f"Accuracy en Pruebas: {test_acc:.2f}")
+    
+    return model, vectorizer, val_acc, test_acc, report
 
 # Clasificación usando LLM (Hugging Face Transformers)
 @st.cache_data
@@ -57,7 +73,7 @@ def get_llm_classifier():
 # Interfaz con Streamlit
 def main():
     st.title("Clasificación de Noticias - Baseline vs LLM")
-    st.write("Este proyecto compara un modelo de **Regresión Logística** (baseline) con un **LLM** para clasificar noticias.")
+    st.write("Este proyecto compara un modelo de *Regresión Logística* (baseline) con un *LLM* para clasificar noticias.")
 
     # Subir archivo CSV
     uploaded_file = st.file_uploader("Sube tu archivo CSV con columnas 'News' y 'Type'", type=["csv"])
@@ -65,8 +81,8 @@ def main():
         st.write("Archivo cargado exitosamente. Entrenando el modelo baseline...")
 
         # Entrenamiento del baseline
-        baseline_model, vectorizer, baseline_acc, baseline_report = train_baseline(uploaded_file)
-        st.success(f"Baseline entrenado con un Accuracy del {baseline_acc:.2f}")
+        baseline_model, vectorizer, baseline_val_acc, baseline_test_acc, baseline_report = train_baseline(uploaded_file)
+        st.success(f"Baseline entrenado con un Accuracy en Validación del {baseline_val_acc:.2f} y en Pruebas del {baseline_test_acc:.2f}")
         st.subheader("Reporte de Clasificación - Baseline:")
         st.write(pd.DataFrame(baseline_report).T)
 
@@ -90,11 +106,11 @@ def main():
                 
                 # Mostrar resultados
                 st.write("### Resultado del Baseline:")
-                st.success(f"Categoría Predicha (Baseline - Regresión Logística): **{baseline_prediction[0]}**")
+                st.success(f"Categoría Predicha (Baseline - Regresión Logística): *{baseline_prediction[0]}*")
                 st.write("### Resultado del LLM:")
-                st.success(f"Categoría Predicha (LLM - BERT): **{llm_prediction[0]['label']}**")
+                st.success(f"Categoría Predicha (LLM - BERT): *{llm_prediction[0]['label']}*")
             else:
                 st.warning("Por favor, ingresa una noticia.")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
