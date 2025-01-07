@@ -31,7 +31,14 @@ def preprocess(text):
 def split_data(file):
     df = pd.read_csv(file)
     df = df.dropna(subset=["news", "Type"])
-
+    # Mostrar distribución de categorías
+    st.write("### Distribución de Categorías de Noticias:")
+    category_dist = df['Type'].value_counts()
+    st.write(pd.DataFrame({
+        'Categoría': category_dist.index,
+        'Número de Noticias': category_dist.values,
+        'Porcentaje': (category_dist.values / len(df) * 100).round(2)
+    }))
     # Preprocesamiento de noticias
     df['Processed_News'] = df['news'].apply(preprocess)
 
@@ -40,9 +47,33 @@ def split_data(file):
     X = vectorizer.fit_transform(df['Processed_News'])
     y = df['Type']
 
-    # División de datos
-    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42)
-    X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
+    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.25, random_state=42)
+    test_size_adjusted = 0.4  # 10% del total (40% del 25% restante)
+    X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=test_size_adjusted, random_state=42)
+
+    # Mostrar distribución del split
+    st.write("\n### Distribución del Split de Datos:")
+    split_dist = pd.DataFrame({
+        'Conjunto': ['Entrenamiento', 'Validación', 'Pruebas'],
+        'Número de Muestras': [X_train.shape[0], X_val.shape[0], X_test.shape[0]],
+        'Porcentaje': [75, 15, 10]
+    })
+    st.write(split_dist)
+
+    # Mostrar distribución de categorías en cada conjunto
+    st.write("\n### Distribución de Categorías por Conjunto:")
+    
+    train_dist = pd.Series(y_train).value_counts()
+    val_dist = pd.Series(y_val).value_counts()
+    test_dist = pd.Series(y_test).value_counts()
+    
+    dist_df = pd.DataFrame({
+        'Entrenamiento': train_dist,
+        'Validación': val_dist,
+        'Pruebas': test_dist
+    }).fillna(0)
+    
+    st.write(dist_df)
 
     return df, X_train, X_val, X_test, y_train, y_val, y_test, vectorizer
 
@@ -183,9 +214,9 @@ def main():
                 baseline_pred, bert_pred = classify_news(user_input, vectorizer, baseline_model, bert_model, bert_tokenizer, label_encoder)
 
                 st.write("### Resultado del Baseline:")
-                st.success(f"Categoría Predicha (Baseline): **{baseline_pred}**")
+                st.success(f"Categoría Predicha (Baseline): *{baseline_pred}*")
                 st.write("### Resultado del BERT:")
-                st.success(f"Categoría Predicha (BERT): **{bert_pred}**")
+                st.success(f"Categoría Predicha (BERT): *{bert_pred}*")
                 # processed_input = preprocess(user_input)
                 # vectorized_input = vectorizer.transform([processed_input])
                 # baseline_prediction = baseline_model.predict(vectorized_input)
@@ -196,9 +227,9 @@ def main():
                 # bert_category = label_encoder.inverse_transform([bert_prediction])[0]
 
                 # st.write("### Resultado del Baseline:")
-                # st.success(f"Categoría Predicha (Baseline): **{baseline_prediction[0]}**")
+                # st.success(f"Categoría Predicha (Baseline): *{baseline_prediction[0]}*")
                 # st.write("### Resultado del BERT:")
-                # st.success(f"Categoría Predicha (BERT): **{bert_category}**")
+                # st.success(f"Categoría Predicha (BERT): *{bert_category}*")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
