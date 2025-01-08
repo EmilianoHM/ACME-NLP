@@ -1,4 +1,8 @@
 #Ignorar la carpeta Proyecto Final/bert_model
 Proyecto Final/bert_model
 Proyecto Final/label_encoder.pkl
+Proyecto Final/label_mapping.pkl
+Proyecto Final/bert_classificador
+Proyecto Final/device.pt
+Proyecto Final/test_loader.pt
 

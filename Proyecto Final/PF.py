@@ -9,15 +9,26 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
+from tqdm import tqdm
 from datasets import Dataset
 from sklearn.preprocessing import LabelEncoder
 from torch.utils.data import DataLoader
 from torch.optim import AdamW
 from torch.nn import CrossEntropyLoss
 import os
+from transformers import BertForSequenceClassification, AdamW, get_scheduler
+from sklearn.metrics import classification_report, confusion_matrix
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import joblib
 
 # Cargar modelo de spaCy para español
 nlp = spacy.load("es_core_news_sm")
+
+#Un df vacío
+df = pd.DataFrame()
+df2 = pd.DataFrame()
 
 # Preprocesamiento del texto
 def preprocess(text):
@@ -29,7 +40,9 @@ def preprocess(text):
 
 @st.cache_data
 def split_data(file):
+    global df, df2
     df = pd.read_csv(file)
+    df2 = df
     df = df.dropna(subset=["news", "Type"])
     # Mostrar distribución de categorías
     st.write("### Distribución de Categorías de Noticias:")
@@ -92,79 +105,219 @@ def train_baseline(X_train, y_train, X_val, y_val, X_test, y_test):
     return model, val_acc, val_report, test_acc, test_report
 
 # Entrenamiento manual de BERT
-def train_bert_model(texts_train, y_train, texts_val, y_val):
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")
-    model = AutoModelForSequenceClassification.from_pretrained(
-        "bert-base-multilingual-cased", num_labels=len(set(y_train))
-    )
+@st.cache_data
+def train_bert_model():
+    global df2    
+
     label_encoder = LabelEncoder()
-    y_train_enc = label_encoder.fit_transform(y_train)
-    y_val_enc = label_encoder.transform(y_val)
+    df2['Type_encoded'] = label_encoder.fit_transform(df2['Type'])
 
-    # Convertir sparse matrices a listas si es necesario
-    if isinstance(texts_train, csr_matrix):
-        texts_train = texts_train.toarray()
-    if isinstance(texts_val, csr_matrix):
-        texts_val = texts_val.toarray()
 
-    texts_train = [str(text) for text in texts_train]
-    texts_val = [str(text) for text in texts_val]
+    # Ver el mapeo de las etiquetas
+    label_mapping = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
 
-    def tokenize_function(examples):
-        encodings = tokenizer(examples["text"], padding="max_length", truncation=True)
-        encodings["label"] = examples["label"]
-        return encodings
+    pd.to_pickle(label_mapping, "label_mapping.pkl")
+    joblib.dump(label_encoder, "label_encoder.pkl")
+    print("Mapeo de etiquetas:")
+    print(label_mapping)
 
-    train_dataset = Dataset.from_dict({"text": texts_train, "label": y_train_enc})
-    val_dataset = Dataset.from_dict({"text": texts_val, "label": y_val_enc})
+    # Dividir el dataset en entrenamiento y validación
+    # Dividir el dataset en entrenamiento, validación y prueba
+    train_texts, temp_texts, train_labels, temp_labels = train_test_split(
+        df2['news'], df2['Type_encoded'], test_size=0.25, stratify=df2['Type_encoded'], random_state=42
+    )
 
-    train_dataset = train_dataset.map(tokenize_function, batched=True)
-    val_dataset = val_dataset.map(tokenize_function, batched=True)
+    val_texts, test_texts, val_labels, test_labels = train_test_split(
+        temp_texts, temp_labels, test_size=0.4, stratify=temp_labels, random_state=42
+    )
 
-    train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
-    val_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
+    train_df = pd.DataFrame({'text': train_texts, 'label': train_labels})
+    max_count = train_df['label'].value_counts().max()
 
-    train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True)
-    val_dataloader = DataLoader(val_dataset, batch_size=8)
+    balanced_train_df = train_df.groupby('label').apply(lambda x: x.sample(max_count, replace=True)).reset_index(drop=True)
 
-    optimizer = AdamW(model.parameters(), lr=5e-5)
+    print("\nDistribución de las clases en el conjunto de entrenamiento:")
+    print(balanced_train_df['label'].value_counts())
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_texts = balanced_train_df['text']
+    train_labels = balanced_train_df['label']
+
+
+    print("\nTamaño del conjunto de entrenamiento:", len(train_texts))
+    print("Tamaño del conjunto de validación:", len(val_texts))
+    print("Tamaño del conjunto de prueba:", len(test_texts))
+
+
+    # Crear un Dataset de Hugging Face
+    train_dataset = Dataset.from_pandas(pd.DataFrame({'text': train_texts, 'label': train_labels}))
+    val_dataset = Dataset.from_pandas(pd.DataFrame({'text': val_texts, 'label': val_labels}))
+    test_dataset = Dataset.from_pandas(pd.DataFrame({'text': test_texts, 'label': test_labels}))
+
+    # Cargar el tokenizer de BERT
+    tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+
+    #Tokenizar
+    train_dataset = train_dataset.map(lambda x: tokenizer(x['text'], truncation=True, padding='max_length'), batched=True)
+    val_dataset = val_dataset.map(lambda x: tokenizer(x['text'], truncation=True, padding='max_length'), batched=True)
+    test_dataset = test_dataset.map(lambda x: tokenizer(x['text'], truncation=True, padding='max_length'), batched=True)
+
+    train_dataset.set_format('torch', columns=['input_ids', 'attention_mask', 'label'])
+    val_dataset.set_format('torch', columns=['input_ids', 'attention_mask', 'label'])
+    test_dataset.set_format('torch', columns=['input_ids', 'attention_mask', 'label'])
+
+    #Comenzamos con bert
+    # Determinar el número de clases
+    num_classes = len(label_mapping)
+
+    # Cargar el modelo BERT preentrenado
+    model = BertForSequenceClassification.from_pretrained(
+        'bert-base-uncased',
+        num_labels=num_classes  # Número de clases
+    )
+
+    # Mover el modelo a GPU si está disponible
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model.to(device)
 
-    epochs = 1
-    cont = 0
-    for epoch in range(epochs):
-        print("Epoch", epoch + 1)
-        model.train()
-        for batch in train_dataloader:
-            print("Batch", cont + 1, "de", len(train_dataloader))
-            cont += 1
-            optimizer.zero_grad()
-            input_ids = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
-            labels = batch["label"].to(device)
+    print(f"Modelo configurado y movido a {device}.")
 
-            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-            loss = outputs.loss
-            loss.backward()
-            optimizer.step()
+    # Configurar el optimizador
+    optimizer = AdamW(model.parameters(), lr=5e-5)
 
-    # Guardar modelo y tokenizer
-    model.save_pretrained("bert_model")
-    tokenizer.save_pretrained("bert_model")
+    # Crear un scheduler para la tasa de aprendizaje
+    num_training_steps = len(train_dataset) // 16 * 3 # 5 epochs, batch size de 16
+    scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
+
+    print("Optimizador y scheduler configurados.")
+
+    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=16)
+    test_loader = DataLoader(test_dataset, batch_size=16)
+
+    print("DataLoaders creados con éxito.")
+
+    def train_model(model, train_loader, val_loader, optimizer, scheduler, num_epochs=3):
+        loss_fn = CrossEntropyLoss()
+
+        for epoch in range(num_epochs):
+            print(f"\nEpoch {epoch + 1}/{num_epochs}")
+
+            # Fase de entrenamiento
+            model.train()
+            train_loss = 0
+            cont = 0
+            cont2 = 0
+            for batch in tqdm(train_loader):
+                print(f"Batch {cont} de {len(train_loader)}")   
+                cont += 1         
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["label"].to(device)
+
+                
+                outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+                loss = outputs.loss
+
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+                scheduler.step()
+
+                train_loss += loss.item()
+
+            avg_train_loss = train_loss / len(train_loader)
+            print(f"Loss de entrenamiento: {avg_train_loss:.4f}")
+
+            # Fase de validación
+            model.eval()
+            val_loss = 0
+            correct = 0
+            total = 0
+
+            with torch.no_grad():
+                for batch in val_loader:
+                    print(f"Batch {cont2} de {len(val_loader)}")
+                    cont2 += 1
+                    # Verificar si batch es una lista y convertirla en un diccionario
+                    # if isinstance(batch, list):
+                    #     batch = {key: torch.stack([d[key] for d in batch]) for key in batch[0].keys()}
+                    
+                    # # Mover los datos al dispositivo
+                    # batch = {k: v.to(device) for k, v in batch.items()}
+                    
+                    # outputs = model(**batch)
+                    input_ids = batch["input_ids"].to(device)
+                    attention_mask = batch["attention_mask"].to(device)
+                    labels = batch["label"].to(device)
+
+                    
+                    outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+                    loss = outputs.loss
+
+                    val_loss += loss.item()
+                    preds = torch.argmax(outputs.logits, dim=-1)
+                    correct += (preds == batch['label']).sum().item()
+                    total += batch['label'].size(0)
+
+            avg_val_loss = val_loss / len(val_loader)
+            val_accuracy = correct / total
+            print(f"Loss de validación: {avg_val_loss:.4f}")
+            print(f"Exactitud de validación: {val_accuracy:.4f}")
+
+    # Entrenar el modelo
+    train_model(model, train_loader, val_loader, optimizer, scheduler)
+
+    model.save_pretrained("bert_classificador")
+    tokenizer.save_pretrained("bert_classificador")
+    #Guardar device
+    torch.save(device, "device.pt")
+    #Guardar test_loader
+    torch.save(test_loader, "test_loader.pt")
+
     
-    # Guardar el label encoder
-    pd.to_pickle(label_encoder, "label_encoder.pkl")
 
-    return model, tokenizer, label_encoder
+    print("Modelo y tokenizer guardados en el directorio 'bert_classificador'.")    
+
+    return model, tokenizer, label_encoder, label_mapping, test_loader, device
+
 
 # Modificación en la sección de clasificación
 def load_bert_model():
-    model = AutoModelForSequenceClassification.from_pretrained("bert_model")
-    tokenizer = AutoTokenizer.from_pretrained("bert_model")
-    label_encoder = pd.read_pickle("label_encoder.pkl")
-    return model, tokenizer, label_encoder
+    model, tokenizer = BertForSequenceClassification.from_pretrained("bert_classificador"), AutoTokenizer.from_pretrained("bert_classificador")
+    label_mapping = pd.read_pickle("label_mapping.pkl")
+    label_encoder = joblib.load("label_encoder.pkl")
+    device = torch.load("device.pt")
+    test_loader = torch.load("test_loader.pt")
+    return model, tokenizer, label_encoder, device, test_loader, label_mapping
+
+def evaluate_model(model, test_loader, label_mapping, device):    
+    model.eval()
+    predictions = []
+    true_labels = []
+
+    with torch.no_grad():
+        for batch in test_loader:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["label"].to(device)
+            
+            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+            preds = torch.argmax(outputs.logits, dim=-1)
+
+            predictions.extend(preds.cpu().numpy())
+            true_labels.extend(batch['label'].cpu().numpy())
+
+    # Generar el reporte de clasificación
+    print("\nReporte de clasificación:")
+    print(classification_report(true_labels, predictions, target_names=label_mapping.keys()))
+
+    # Generar la matriz de confusión
+    cm = confusion_matrix(true_labels, predictions)
+
+
+    return cm, classification_report(true_labels, predictions, target_names=label_mapping.keys(), output_dict=True)
+    
+
 
 def classify_news(user_input, vectorizer, baseline_model, bert_model, bert_tokenizer, label_encoder):
     processed_input = preprocess(user_input)
@@ -180,6 +333,17 @@ def classify_news(user_input, vectorizer, baseline_model, bert_model, bert_token
 
 
 # Interfaz con Streamlit
+
+# Inicializar los estados de sesión
+if 'bert_evaluated' not in st.session_state:
+    st.session_state['bert_evaluated'] = False
+if 'baseline_results' not in st.session_state:
+    st.session_state['baseline_results'] = None
+if 'bert_matriz' not in st.session_state:
+    st.session_state['bert_matriz'] = None
+if 'bert_reporte' not in st.session_state:
+    st.session_state['bert_reporte'] = None
+
 def main():
     st.title("Clasificación de Noticias - Baseline vs BERT Fine-Tuning")
     uploaded_file = st.file_uploader("Sube tu archivo CSV con columnas 'news' y 'Type'", type=["csv"])
@@ -193,19 +357,38 @@ def main():
         baseline_model, val_acc_baseline, val_report_baseline, test_acc_baseline, test_report_baseline = train_baseline(
             X_train, y_train, X_val, y_val, X_test, y_test
         )
-        st.success(f"Baseline entrenado. Validación Accuracy: {val_acc_baseline:.2f}, Prueba Accuracy: {test_acc_baseline:.2f}")
+        st.success("Modelo Baseline entrenado exitosamente.")
 
         # Fine-tuning de BERT
-        if not os.path.exists("bert_model"):
+        if not os.path.exists("bert_classificador"):
             st.write("Entrenando el modelo BERT...")
-            bert_model, bert_tokenizer, label_encoder = train_bert_model(
-                X_train, y_train, X_val, y_val
-            )
+            bert_model, bert_tokenizer, label_encoder, label_mapping, test_loader, device = train_bert_model()
             st.success("Modelo BERT entrenado exitosamente.")
         else:
             st.write("Cargando el modelo BERT...")
-            bert_model, bert_tokenizer, label_encoder = load_bert_model()
+            bert_model, bert_tokenizer, label_encoder, device, test_loader, label_mapping = load_bert_model()
             st.success("Modelo BERT cargado exitosamente.")
+
+        if not st.session_state['bert_evaluated']:
+            # Evaluación del modelo BERT
+            st.write("Probando modelos en conjunto de prueba...")
+            st.write("### Resultados en Baseline:")
+            st.write("Matriz de confusión:")
+            st.write(confusion_matrix(y_test, baseline_model.predict(X_test)))
+            st.write("Reporte de clasificación:")
+            st.write(pd.DataFrame(test_report_baseline).T)
+
+            matriz, reporte = evaluate_model(bert_model, test_loader, label_mapping, device)
+            st.session_state['bert_matriz'] = matriz
+            st.session_state['bert_reporte'] = reporte
+            st.session_state['bert_evaluated'] = True
+
+        # Mostrar resultados almacenados
+        st.write("### Resultados en BERT:")
+        st.write("Matriz de confusión:")
+        st.write(st.session_state['bert_matriz'])
+        st.write("Reporte de clasificación:")
+        st.write(pd.DataFrame(st.session_state['bert_reporte']).T)
 
         st.subheader("Prueba los Modelos")
         user_input = st.text_area("Escribe una noticia para clasificarla:")
@@ -217,19 +400,6 @@ def main():
                 st.success(f"Categoría Predicha (Baseline): *{baseline_pred}*")
                 st.write("### Resultado del BERT:")
                 st.success(f"Categoría Predicha (BERT): *{bert_pred}*")
-                # processed_input = preprocess(user_input)
-                # vectorized_input = vectorizer.transform([processed_input])
-                # baseline_prediction = baseline_model.predict(vectorized_input)
 
-                # encoded_input = bert_tokenizer(user_input, return_tensors="pt", truncation=True, padding=True, max_length=512)
-                # bert_output = bert_model(**encoded_input)
-                # bert_prediction = torch.argmax(bert_output.logits, axis=1).item()
-                # bert_category = label_encoder.inverse_transform([bert_prediction])[0]
-
-                # st.write("### Resultado del Baseline:")
-                # st.success(f"Categoría Predicha (Baseline): *{baseline_prediction[0]}*")
-                # st.write("### Resultado del BERT:")
-                # st.success(f"Categoría Predicha (BERT): *{bert_category}*")
-
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
